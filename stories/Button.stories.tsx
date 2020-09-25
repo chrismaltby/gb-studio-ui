@@ -6,7 +6,7 @@ import { darkThemeDecorator } from "./helpers";
 import { FolderIcon } from "../src/icons/Icons";
 
 export default {
-  title: "Buttons/Button",
+  title: "Components/Button",
   component: Button,
   argTypes: {
     onClick: { action: "clicked" },
