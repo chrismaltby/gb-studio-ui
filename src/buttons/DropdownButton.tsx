@@ -22,7 +22,7 @@ export const MenuWrapper = styled.div<MenuWrapperProps>`
   margin-top: 2px;
   z-index: 10001;
 
-  ${(props) =>
+  ${props =>
     props.menuDirection === "right"
       ? css`
           right: 0;
@@ -55,7 +55,7 @@ export const DropdownButton: React.FC<DropdownButtonProps & ButtonProps> = ({
   menuDirection,
 }) => {
   const childArray = React.Children.toArray(children);
-  const menuItemChildren = childArray.filter((child) => {
+  const menuItemChildren = childArray.filter(child => {
     return (
       React.isValidElement<MenuItemProps>(child) && child.type === MenuItem
     );
@@ -69,7 +69,7 @@ export const DropdownButton: React.FC<DropdownButtonProps & ButtonProps> = ({
     moveFocus,
   } = useDropdownMenu(menuItemChildren.length);
 
-  const childrenWithProps = childArray.map((child) => {
+  const childrenWithProps = childArray.map(child => {
     if (
       !React.isValidElement<MenuItemProps>(child) ||
       child.type !== MenuItem
@@ -83,7 +83,7 @@ export const DropdownButton: React.FC<DropdownButtonProps & ButtonProps> = ({
         setIsOpen(false);
         child.props.onClick?.(e);
       },
-      onMouseEnter: (e: any) => {
+      onMouseEnter: () => {
         moveFocus(itemIndex);
       },
     });

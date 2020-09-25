@@ -1,10 +1,4 @@
-import React, {
-  CSSProperties,
-  DOMElement,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { CSSProperties, useEffect, useRef, useState } from "react";
 import { FixedSizeList as List } from "react-window";
 import styled from "styled-components";
 import { ThemeInterface } from "../theme/ThemeInterface";
@@ -82,7 +76,7 @@ export const FlatList: React.FC<FlatListProps> = ({
   const [hasFocus, setHasFocus] = useState(false);
   const list = useRef<List>(null);
 
-  const selectedIndex = items.findIndex((item) => item.id === selectedId);
+  const selectedIndex = items.findIndex(item => item.id === selectedId);
 
   const handleKeys = (e: KeyboardEvent) => {
     if (!hasFocus) {
@@ -90,7 +84,7 @@ export const FlatList: React.FC<FlatListProps> = ({
     }
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      const currentIndex = items.findIndex((item) => item.id === selectedId);
+      const currentIndex = items.findIndex(item => item.id === selectedId);
       const nextIndex = currentIndex + 1;
       const nextItem = items[nextIndex];
       if (nextItem) {
@@ -99,7 +93,7 @@ export const FlatList: React.FC<FlatListProps> = ({
       }
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      const currentIndex = items.findIndex((item) => item.id === selectedId);
+      const currentIndex = items.findIndex(item => item.id === selectedId);
       const nextIndex = currentIndex - 1;
       const nextItem = items[nextIndex];
       if (nextItem) {
@@ -114,12 +108,12 @@ export const FlatList: React.FC<FlatListProps> = ({
   const handleSearch = (key: string) => {
     const search = key.toLowerCase();
     const index = selectedIndex + 1;
-    let next = items.slice(index).find((node) => {
+    let next = items.slice(index).find(node => {
       const name = String(node.name).toLowerCase();
       return name.startsWith(search);
     });
     if (!next) {
-      next = items.slice(0, index).find((node) => {
+      next = items.slice(0, index).find(node => {
         const name = String(node.name).toLowerCase();
         return name.startsWith(search);
       });
@@ -132,7 +126,7 @@ export const FlatList: React.FC<FlatListProps> = ({
 
   const setFocus = (id: string) => {
     if (ref.current) {
-      const el = ref.current.querySelector("[data-id=\"" + id + "\"]");
+      const el = ref.current.querySelector('[data-id="' + id + '"]');
       if (el) {
         (el as HTMLDivElement).focus();
       }
@@ -162,7 +156,7 @@ export const FlatList: React.FC<FlatListProps> = ({
       onFocus={() => setHasFocus(true)}
       onBlur={() => setHasFocus(false)}
       tabIndex={0}
-      style={{width, height}}
+      style={{ width, height }}
     >
       <List
         ref={list}
@@ -175,7 +169,7 @@ export const FlatList: React.FC<FlatListProps> = ({
           selectedIndex,
           selectedId,
           setSelectedId,
-          focus,
+          focus: hasFocus,
           renderItem: children,
         }}
       >

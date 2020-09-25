@@ -32,7 +32,6 @@
   "prettier": {
     "printWidth": 80,
     "semi": true,
-    "singleQuote": true,
     "trailingComma": "es5"
   },
   "name": "gb-studio-ui",
@@ -69,8 +68,11 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
+    "@types/react-window": "^1.8.2",
     "@types/styled-components": "^5.1.3",
     "focus-visible": "^5.1.0",
+    "prop-types": "^15.7.2",
+    "react-window": "^1.8.5",
     "styled-components": "^5.2.0"
   }
 }

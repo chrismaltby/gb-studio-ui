@@ -28,7 +28,7 @@ const darkheme: ThemeInterface = {
         // shadow: "transparent",
       },
       nestedBackground: "#444444",
-      nestedActiveBackground: "#555555",      
+      nestedActiveBackground: "#555555",
     },
     menu: {
       background: "#000000",

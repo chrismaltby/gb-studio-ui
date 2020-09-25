@@ -10,5 +10,5 @@ export const FlexGrow = styled.div`
 
 export const FixedSpacer = styled.div<FixedSpacerProps>`
   width: ${props => props.width}px;
-  flex-shrink: 0;  
+  flex-shrink: 0;
 `;

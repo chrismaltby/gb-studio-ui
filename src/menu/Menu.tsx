@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
-import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { ThemeInterface } from "../theme/ThemeInterface";
 import { darken } from "polished";
 
@@ -18,9 +17,9 @@ export const Menu = styled.div<MenuProps>`
   user-select: none;
   box-shadow: 0 0 0 1px rgba(150, 150, 150, 0.3),
     0 4px 11px hsla(0, 0%, 0%, 0.1);
-  background: ${(props) => props.theme.colors.menu.background};
-  color: ${(props) => props.theme.colors.text};
-  font-size: ${(props) => props.theme.typography.fontSize};
+  background: ${props => props.theme.colors.menu.background};
+  color: ${props => props.theme.colors.text};
+  font-size: ${props => props.theme.typography.fontSize};
 `;
 
 export interface MenuItemProps {
@@ -36,16 +35,17 @@ export const MenuItem = styled.div<MenuItemProps>`
 
   &:hover,
   &:focus {
-    background: ${(props) => props.theme.colors.menu.hoverBackground};
+    background: ${props => props.theme.colors.menu.hoverBackground};
     outline: none;
   }
 
   &:active {
-    background: ${(props) => props.theme.colors.menu.activeBackground};
+    background: ${props => props.theme.colors.menu.activeBackground};
   }
 
   ${Menu}:hover &:focus&:not(:hover) {
-    background: ${(props) => darken(0.1, props.theme.colors.menu.hoverBackground)};
+    background: ${props =>
+      darken(0.1, props.theme.colors.menu.hoverBackground)};
   }
 
   &:first-child {
@@ -60,7 +60,7 @@ export const MenuItem = styled.div<MenuItemProps>`
 `;
 
 export const MenuDivider = styled.div`
-  border-bottom: 1px solid ${(props) => props.theme.colors.menu.divider};
+  border-bottom: 1px solid ${props => props.theme.colors.menu.divider};
 `;
 
 export const MenuAccelerator = styled.div`
@@ -68,7 +68,7 @@ export const MenuAccelerator = styled.div`
   font-size: 0.8em;
   text-align: right;
   margin-left: 10px;
-  color: ${(props) => props.theme.colors.secondaryText};
+  color: ${props => props.theme.colors.secondaryText};
 `;
 
 export const MenuOverlay = styled.div`

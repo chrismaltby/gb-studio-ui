@@ -36,7 +36,7 @@ export const Wrapper = styled.div`
 export const SplitPaneHeader: React.FC<SplitPaneHeaderProps> = ({
   children,
   onToggle,
-  collapsed
+  collapsed,
 }) => {
   return (
     <Wrapper onClick={onToggle}>

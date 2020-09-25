@@ -201,7 +201,7 @@ export default function useDropdownMenu(itemCount: number) {
     "aria-expanded": isOpen,
   };
 
-  const itemProps = [...Array(itemCount)].map((ignore, index) => ({
+  const itemProps = [...Array(itemCount)].map((_ignore, index) => ({
     onKeyDown: itemListener,
     tabIndex: -1,
     role: "menuitem",

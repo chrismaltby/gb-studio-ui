@@ -15,7 +15,7 @@ export const Button = styled.button<ButtonProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: ${(props) => props.theme.typography.fontSize};
+  font-size: ${props => props.theme.typography.fontSize};
   border-radius: 4px;
   height: 34px;
   min-width: 24px;
@@ -29,14 +29,14 @@ export const Button = styled.button<ButtonProps>`
   svg {
     max-width: 100%;
     max-height: 100%;
-    fill: ${(props) => props.theme.colors.button.text};
+    fill: ${props => props.theme.colors.button.text};
   }
 
-  ${(props) => (props.size === "small" ? smallStyles : "")}
-  ${(props) => (props.size === "large" ? largeStyles : "")}
-  ${(props) => (props.variant === "normal" ? normalStyles : "")}
-  ${(props) => (props.variant === "primary" ? primaryStyles : "")}
-  ${(props) => (props.variant === "transparent" ? transparentStyles : "")}
+  ${props => (props.size === "small" ? smallStyles : "")}
+  ${props => (props.size === "large" ? largeStyles : "")}
+  ${props => (props.variant === "normal" ? normalStyles : "")}
+  ${props => (props.variant === "primary" ? primaryStyles : "")}
+  ${props => (props.variant === "transparent" ? transparentStyles : "")}
 `;
 
 const smallStyles = css`
@@ -54,20 +54,20 @@ const largeStyles = css`
 const normalStyles = css`
   background: linear-gradient(
     to bottom,
-    ${(props) => props.theme.colors.button.background} 0%,
-    ${(props) => props.theme.colors.button.gradientBottom} 100%
+    ${props => props.theme.colors.button.background} 0%,
+    ${props => props.theme.colors.button.gradientBottom} 100%
   );
-  border: 1px solid ${(props) => props.theme.colors.button.border};
-  border-top: 1px solid ${(props) => props.theme.colors.button.borderTop};
-  color: ${(props) => props.theme.colors.button.text};
+  border: 1px solid ${props => props.theme.colors.button.border};
+  border-top: 1px solid ${props => props.theme.colors.button.borderTop};
+  color: ${props => props.theme.colors.button.text};
 
   :active {
-    background: ${(props) => props.theme.colors.button.activeBackground};
+    background: ${props => props.theme.colors.button.activeBackground};
   }
 `;
 
 const primaryStyles = css`
-  background: ${(props) => props.theme.colors.highlight};
+  background: ${props => props.theme.colors.highlight};
   border-color: transparent;
   color: #fff;
 
@@ -76,7 +76,7 @@ const primaryStyles = css`
   }
 
   :active {
-    background: ${(props) => lighten(0.1, props.theme.colors.highlight)};
+    background: ${props => lighten(0.1, props.theme.colors.highlight)};
   }
 `;
 

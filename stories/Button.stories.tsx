@@ -21,7 +21,7 @@ Default.args = {
 };
 
 export const DefaultDark = Template.bind({});
-DefaultDark.args = Default.args
+DefaultDark.args = Default.args;
 DefaultDark.decorators = [darkThemeDecorator];
 
 export const WithIcon = Template.bind({});

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { MinusIcon, PlusIcon } from "../icons/Icons";
 
 export interface ZoomButtonProps {
@@ -22,10 +21,10 @@ const ZoomButtonWrapper = styled.div`
 const ZoomInnerButton = styled.button<ZoomInnerButtonProps>`
   position: absolute;
   top: 4px;
-  left: ${(props) => (props.pin === "left" ? "4px" : "auto")};
-  right: ${(props) => (props.pin === "right" ? "4px" : "auto")};
+  left: ${props => (props.pin === "left" ? "4px" : "auto")};
+  right: ${props => (props.pin === "right" ? "4px" : "auto")};
   display: block;
-  background: ${(props) => props.theme.colors.button.nestedBackground};
+  background: ${props => props.theme.colors.button.nestedBackground};
   border-radius: 20px;
   height: 16px;
   width: 16px;
@@ -34,7 +33,7 @@ const ZoomInnerButton = styled.button<ZoomInnerButtonProps>`
   border: 0;
 
   :active {
-    background: ${(props) => props.theme.colors.button.nestedActiveBackground};
+    background: ${props => props.theme.colors.button.nestedActiveBackground};
   }
 
   :after {
@@ -51,7 +50,7 @@ const ZoomInnerButton = styled.button<ZoomInnerButtonProps>`
   & > svg {
     width: 8px;
     height: 8px;
-    fill: ${(props) => props.theme.colors.button.text};
+    fill: ${props => props.theme.colors.button.text};
   }
 `;
 
@@ -73,22 +72,21 @@ const ZoomLabel = styled.button`
   -webkit-app-region: no-drag;
   background: linear-gradient(
     to bottom,
-    ${(props) => {
-      console.log({ props });
-      return props.theme.colors.button.background;
-    }}
+    ${props => {
+        console.log({ props });
+        return props.theme.colors.button.background;
+      }}
       0%,
-    ${(props) => props.theme.colors.button.gradientBottom} 100%
+    ${props => props.theme.colors.button.gradientBottom} 100%
   );
-  border: 1px solid ${(props) => props.theme.colors.button.toolbar.border};
-  border-top: 1px solid
-    ${(props) => props.theme.colors.button.toolbar.borderTop};
+  border: 1px solid ${props => props.theme.colors.button.toolbar.border};
+  border-top: 1px solid ${props => props.theme.colors.button.toolbar.borderTop};
   box-shadow: 0px 1px var(--toolbar-button-shadow-color);
-  color: ${(props) => props.theme.colors.button.text};
+  color: ${props => props.theme.colors.button.text};
   padding: 0px 5px;
 
   :active {
-    background: ${(props) => props.theme.colors.button.activeBackground};
+    background: ${props => props.theme.colors.button.activeBackground};
   }
 `;
 
@@ -101,7 +99,7 @@ export const ZoomButton: React.FC<ZoomButtonProps> = ({
   <ZoomButtonWrapper onClick={onZoomReset}>
     <ZoomInnerButton
       pin="left"
-      onClick={(event) => {
+      onClick={event => {
         event.stopPropagation();
         onZoomOut?.();
       }}
@@ -111,7 +109,7 @@ export const ZoomButton: React.FC<ZoomButtonProps> = ({
     <ZoomLabel>{zoom}%</ZoomLabel>
     <ZoomInnerButton
       pin="right"
-      onClick={(event) => {
+      onClick={event => {
         event.stopPropagation();
         onZoomIn?.();
       }}
@@ -122,5 +120,5 @@ export const ZoomButton: React.FC<ZoomButtonProps> = ({
 );
 
 ZoomButton.defaultProps = {
-  zoom: 100
+  zoom: 100,
 };

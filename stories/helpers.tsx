@@ -4,7 +4,5 @@ import { ThemeProvider } from "styled-components";
 import darkTheme from "../src/theme/darkTheme";
 
 export const darkThemeDecorator = (story: () => StoryFnReactReturnType) => (
-  <ThemeProvider theme={darkTheme}>
-    {story()}
-  </ThemeProvider>
+  <ThemeProvider theme={darkTheme}>{story()}</ThemeProvider>
 );

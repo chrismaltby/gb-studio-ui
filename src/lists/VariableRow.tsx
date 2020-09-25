@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { ListItemButton } from "../buttons/ListItemButton";
-import { PencilIcon } from "../icons/Icons";
 import { FlatListItem } from "./FlatList";
 
 export interface VariableRowProps {
