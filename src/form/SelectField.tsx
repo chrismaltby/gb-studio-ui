@@ -27,7 +27,7 @@ export const SelectField: FC<SelectFieldProps> = ({
 }) => (
   <Wrapper>
     {label && <Label htmlFor={name}>{label}</Label>}
-    <Select id={name} name={name} value={value} options={options} />
+    <Select inputId={name} name={name} value={value} options={options} />
   </Wrapper>
 );
 
