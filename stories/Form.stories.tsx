@@ -8,6 +8,7 @@ import { NoteField } from "../src/form/NoteField";
 import { SelectField } from "../src/form/SelectField";
 import { CheckboxField } from "../src/form/CheckboxField";
 import { CoordinateInput } from "../src/form/CoordinateInput";
+import { SquareSelect } from "../src/form/SquareSelect";
 import { ToggleButtonGroupField } from "../src/form/ToggleButtonGroupField";
 import {
   FormContainer,
@@ -21,6 +22,9 @@ import { MenuDivider, MenuItem } from "../src/menu/Menu";
 import { action } from "@storybook/addon-actions";
 import { PinIcon } from "../src/icons/Icons";
 import { Checkbox } from "../src/form/Checkbox";
+import spriteFile from "./static/sprite.png";
+
+const menuEl = document.getElementById("menu-root");
 
 export default {
   title: "Components/Form Fields/Example Forms",
@@ -72,14 +76,105 @@ export const ActorEditor = () => {
           </MenuItem>
           <MenuDivider />
           <MenuItem>
-            <Checkbox id="pin_actor2" name="pin_actor2" checked={false} /> Actor 2
+            <Checkbox id="pin_actor2" name="pin_actor2" checked={false} /> Actor
+            2
           </MenuItem>
           <MenuItem>
-            <Checkbox id="pin_actor3" name="pin_actor3" checked={false} /> Actor 3
+            <Checkbox id="pin_actor3" name="pin_actor3" checked={false} /> Actor
+            3
           </MenuItem>
         </DropdownButton>
       </FormRow>
       <FormDivider />
+      <FormRow>
+        <div>
+          <SquareSelect
+            label="SpriteSheet"
+            name="spriteSheetId"
+            value={{ label: "Static", value: "static" }}
+            options={[
+              {
+                value: "static",
+                label: "Static",
+              },
+              {
+                value: "actor",
+                label: "Actor",
+              },
+            ]}
+            size={48}
+            components={{
+              DropdownIndicator: () => (
+                <div style={{ padding: 5 }}>
+                  <img src={spriteFile} style={{ width: "100%" }} />
+                </div>
+              ),
+            }}
+          />
+        </div>
+        <div style={{ fontSize: 11, lineHeight: "14px", width: "100%" }}>
+          <div>
+            <strong>Sprite:</strong> Cat
+          </div>
+          <div>
+            <strong>Frames:</strong> 1
+          </div>
+          <div>
+            <strong>Type:</strong> Static
+          </div>
+        </div>
+        <div>
+          <SquareSelect
+            label="SpriteSheet"
+            name="spriteSheetId"
+            value={{ label: "Static", value: "static" }}
+            options={[
+              {
+                value: "static",
+                label: "Static",
+              },
+              {
+                value: "actor",
+                label: "Actor",
+              },
+            ]}
+            size={36}
+            components={{
+              DropdownIndicator: () => (
+                <div style={{ padding: 2 }}>
+                  <div style={{ display: "flex" }}>
+                    <div
+                      style={{
+                        background: "rgb(239, 204, 189)",
+                        width: 15,
+                        height: 15,
+                        borderTopLeftRadius: 3,
+                      }}
+                    />
+                    <div
+                      style={{
+                        background: "rgb(210, 156, 145)",
+                        width: 15,
+                        height: 15,
+                        borderTopRightRadius: 3,
+                      }}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      background: "rgb(15, 42, 55)",
+                      width: 30,
+                      height: 15,
+                      borderBottomLeftRadius: 3,
+                      borderBottomRightRadius: 3,
+                    }}
+                  />
+                </div>
+              ),
+            }}
+          />
+        </div>
+      </FormRow>
       <FormRow>
         <NumberField label="Initial Frame" name="initialFrame" value={0} />
         <SelectField
