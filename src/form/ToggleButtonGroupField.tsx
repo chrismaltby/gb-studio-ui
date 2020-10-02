@@ -1,6 +1,9 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { ToggleButtonGroup, ToggleButtonGroupOption } from "./ToggleButtonGroup";
+import {
+  ToggleButtonGroup,
+  ToggleButtonGroupOption,
+} from "./ToggleButtonGroup";
 import { Label } from "./Label";
 
 export interface ToggleButtonGroupFieldProps {

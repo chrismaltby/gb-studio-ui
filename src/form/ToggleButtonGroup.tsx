@@ -93,7 +93,12 @@ export const ToggleButtonGroup: FC<ToggleButtonGroupProps> = ({
     <Wrapper>
       {options.map(option => (
         <Option key={option.value}>
-          <Input id={`${name}__${option.value}`} type="radio" name={name} checked={option.value === value} />
+          <Input
+            id={`${name}__${option.value}`}
+            type="radio"
+            name={name}
+            checked={option.value === value}
+          />
           <Label htmlFor={`${name}__${option.value}`}>{option.label}</Label>
         </Option>
       ))}
