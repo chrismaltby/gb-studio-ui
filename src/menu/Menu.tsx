@@ -69,7 +69,7 @@ export const MenuAccelerator = styled.div`
   flex-grow: 1;
   font-size: 0.8em;
   text-align: right;
-  margin-left: 10px;
+  margin-left: 20px;
   color: ${props => props.theme.colors.secondaryText};
 `;
 

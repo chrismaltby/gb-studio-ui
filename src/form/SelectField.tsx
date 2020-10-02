@@ -19,7 +19,12 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-export const SelectField: FC<SelectFieldProps> = ({ name, label, value, options }) => (
+export const SelectField: FC<SelectFieldProps> = ({
+  name,
+  label,
+  value,
+  options,
+}) => (
   <Wrapper>
     {label && <Label htmlFor={name}>{label}</Label>}
     <Select id={name} name={name} value={value} options={options} />
@@ -27,5 +32,5 @@ export const SelectField: FC<SelectFieldProps> = ({ name, label, value, options 
 );
 
 SelectField.defaultProps = {
-  value: "",
+  value: undefined,
 };

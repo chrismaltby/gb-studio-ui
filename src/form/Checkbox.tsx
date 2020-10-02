@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 
 export interface CheckboxProps {
+  readonly id: string;
   readonly name: string;
   readonly checked?: boolean;
 }
@@ -45,9 +46,14 @@ const Icon = styled.svg`
   stroke-width: 2px;
 `;
 
-export const Checkbox: FC<CheckboxProps> = ({ name, checked, ...props }) => (
+export const Checkbox: FC<CheckboxProps> = ({
+  id,
+  name,
+  checked,
+  ...props
+}) => (
   <CheckboxContainer>
-    <HiddenCheckbox id={name} name={name} checked={checked} {...props} />
+    <HiddenCheckbox id={id} name={name} checked={checked} {...props} />
     <StyledCheckbox>
       <Icon viewBox="0 0 24 24">
         <polyline points="20 6 9 17 4 12" />

@@ -31,5 +31,5 @@ export const CheckboxField: FC<CheckboxFieldProps> = ({
 );
 
 CheckboxField.defaultProps = {
-  value: undefined,
+  checked: undefined,
 };

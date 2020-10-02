@@ -13,7 +13,7 @@ export const Select = styled(WindowedSelect).attrs({
     outline: none;
     border: 1px solid ${props => props.theme.colors.highlight} !important;
     box-shadow: 0 0 0px 2px ${props => props.theme.colors.highlight} !important;
-    transition: box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.710, 2.650);
+    transition: box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.71, 2.65);
   }
 
   .react-select__value-container {
@@ -21,9 +21,9 @@ export const Select = styled(WindowedSelect).attrs({
     padding-left: 5px;
     margin-top: -1px;
   }
-  
+
   .react-select__placeholder {
-      margin: 0;
+    margin: 0;
   }
 
   .react-select__indicator-separator {

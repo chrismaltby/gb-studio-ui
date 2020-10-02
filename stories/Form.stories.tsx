@@ -39,6 +39,10 @@ export const ActorEditor = () => {
           placeholder="Actor 1"
           value="Actor 1"
           title="Rename Actor 1"
+          style={{
+              marginLeft: -5,
+              fontWeight: "bold"
+          }}
         />
         <DropdownButton
           size="small"

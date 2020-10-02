@@ -9,7 +9,6 @@ export const EditableText = styled.input`
   padding: 5px;
   font-size: 16px;
   border-radius: 4px;
-  /* margin: -6px; */
   width: 100%;
   box-sizing: border-box;
 
