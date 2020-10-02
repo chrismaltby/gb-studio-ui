@@ -136,7 +136,9 @@ export const TriggerEditor = () => {
           <MenuItem onClick={action("delete")}>Delete Trigger</MenuItem>
         </DropdownButton>
       </FormHeader>
-      <NoteField value="Notes about this trigger and why it exists." />
+      <FormRow>
+        <NoteField value="Notes about this trigger and why it exists." />
+      </FormRow>
       <FormRow>
         <CoordinateInput name="x" coordinate="x" value={0} />
         <CoordinateInput name="y" coordinate="y" value={0} />
