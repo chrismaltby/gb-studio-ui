@@ -9,7 +9,7 @@ export const Input = styled.input`
   padding: 5px;
   box-sizing: border-box;
   width: 100%;
-  height: 30px;
+  height: 28px;
 
   :hover {
     background: ${props => props.theme.colors.input.hoverBackground};

@@ -62,8 +62,8 @@ export const Window = () => (
         showArrow={false}
         menuDirection="right"
       >
-        <MenuItem onClick={action("export_rom")}>Export ROM</MenuItem>
-        <MenuItem onClick={action("export_web")}>Export WEB</MenuItem>
+        <MenuItem onClick={action("export_rom")}>Export ROM <MenuAccelerator>⇧⌘B</MenuAccelerator></MenuItem>
+        <MenuItem onClick={action("export_web")}>Export WEB <MenuAccelerator>⇧⌘N</MenuAccelerator></MenuItem>
       </DropdownButton>
       <FixedSpacer width={10} />
       <Button onClick={action("play")}>

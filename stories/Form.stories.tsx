@@ -6,6 +6,7 @@ import { NumberField } from "../src/form/NumberField";
 import { darkThemeDecorator } from "./helpers";
 import { EditableText } from "../src/form/EditableText";
 import { NoteField } from "../src/form/NoteField";
+import { SelectField } from "../src/form/SelectField";
 import { CheckboxField } from "../src/form/CheckboxField";
 import { CoordinateInput } from "../src/form/CoordinateInput";
 import {
@@ -59,7 +60,7 @@ export const ActorEditor = () => {
           showArrow={false}
           style={{
             padding: 5,
-            minWidth: 36
+            minWidth: 36,
           }}
         >
           <MenuItem>Pin to Screen</MenuItem>
@@ -68,7 +69,21 @@ export const ActorEditor = () => {
       <FormDivider />
       <FormRow>
         <NumberField label="Initial Frame" name="initialFrame" value={0} />
-        <TextField label="Sprite Type" name="spriteType" value="Static" />
+        <SelectField
+          label="Sprite Type"
+          name="spriteType"
+          value={{ label: "Static", value: "static" }}
+          options={[
+            {
+              value: "static",
+              label: "Static",
+            },
+            {
+              value: "actor",
+              label: "Actor",
+            },
+          ]}
+        />
       </FormRow>
       <FormRow>
         <CheckboxField name="animate" label="Animate while stationary" />
@@ -76,7 +91,21 @@ export const ActorEditor = () => {
       <FormDivider />
       <FormRow>
         <TextField label="Movement Speed" name="movementSpeed" value="0" />
-        <TextField label="Animation Speed" name="animationSpeed" value="0" />
+        <SelectField
+          label="Animation Speed"
+          name="animationSpeed"
+          value={{ label: "0 (Slower)", value: "0" }}
+          options={[
+            {
+              value: "0",
+              label: "0 (Slower)",
+            },
+            {
+              value: "5",
+              label: "5 (Faster)",
+            },
+          ]}
+        />
       </FormRow>
       <FormDivider />
       <FormRow>

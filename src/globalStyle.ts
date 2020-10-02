@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: none;
-    box-shadow: 0 0 0px 2px ${props => props.theme.colors.highlight} !important;
+    box-shadow: 0 0 0px 2px ${props => props.theme.colors.highlight};
     z-index: 10000;
   }
 

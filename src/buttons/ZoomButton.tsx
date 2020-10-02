@@ -86,7 +86,6 @@ const ZoomLabel = styled.button<ZoomLabelProps>`
   );
   border: 1px solid ${props => props.theme.colors.button.toolbar.border};
   border-top: 1px solid ${props => props.theme.colors.button.toolbar.borderTop};
-  box-shadow: 0px 1px var(--toolbar-button-shadow-color);
   color: ${props => props.theme.colors.button.text};
   padding: 0px 5px;
 

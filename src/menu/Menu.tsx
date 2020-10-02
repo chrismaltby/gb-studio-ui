@@ -20,6 +20,7 @@ export const Menu = styled.div<MenuProps>`
   background: ${props => props.theme.colors.menu.background};
   color: ${props => props.theme.colors.text};
   font-size: ${props => props.theme.typography.fontSize};
+  padding: 4px 0;
 `;
 
 export interface MenuItemProps {
@@ -31,12 +32,13 @@ export interface MenuItemProps {
 export const MenuItem = styled.div<MenuItemProps>`
   display: flex;
   align-items: center;
-  padding: 8px 10px;
+  padding: 5px 10px;
 
   &:hover,
   &:focus {
     background: ${props => props.theme.colors.menu.hoverBackground};
     outline: none;
+    box-shadow: none;
   }
 
   &:active {
@@ -48,7 +50,7 @@ export const MenuItem = styled.div<MenuItemProps>`
       darken(0.1, props.theme.colors.menu.hoverBackground)};
   }
 
-  &:first-child {
+  /* &:first-child {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
@@ -56,7 +58,7 @@ export const MenuItem = styled.div<MenuItemProps>`
   &:last-child {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-  }
+  } */
 `;
 
 export const MenuDivider = styled.div`
