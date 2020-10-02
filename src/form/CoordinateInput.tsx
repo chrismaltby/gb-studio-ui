@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledInput = styled(Input)`
-  padding-left: 35px;
+  padding-left: 32px;
 `;
 
 const Label = styled.label`
@@ -22,7 +22,7 @@ const Label = styled.label`
   top: 1px;
   left: 0px;
   bottom: 1px;
-  width: 30px;
+  width: 27px;
   display: flex;
   align-items: center;
   justify-content: center;

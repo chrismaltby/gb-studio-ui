@@ -18,7 +18,7 @@ export const Select = styled(WindowedSelect).attrs({
 
   .react-select__value-container {
     padding-top: 0px;
-    padding-left: 5px;
+    padding-left: 3px;
     margin-top: -1px;
   }
 
@@ -28,6 +28,18 @@ export const Select = styled(WindowedSelect).attrs({
 
   .react-select__indicator-separator {
     margin: 0;
+  }
+
+  .react-select__dropdown-indicator {
+    padding: 0;
+    width: 26px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .react-select__dropdown-indicator svg {
+    width: 16px;
+    height: 16px;
   }
 
   .react-select__option {
@@ -49,10 +61,5 @@ export const Select = styled(WindowedSelect).attrs({
 
   input:focus {
     box-shadow: none !important;
-  }
-
-  svg {
-    width: 8px;
-    height: 8px;
   }
 `;
