@@ -4,6 +4,15 @@ import { Story, Meta } from "@storybook/react/types-6-0";
 import { Select } from "../src/form/Select";
 import { darkThemeDecorator } from "./helpers";
 
+const options = [];
+
+for (let i = 0; i < 5000; i++) {
+  options.push({
+    value: String(i),
+    label: `Option ${i}`,
+  });
+}
+
 export default {
   title: "Components/Form Fields/Select",
   component: Select,
@@ -14,14 +23,11 @@ export default {
 
 const Template: Story = (args: any) => <Select {...args} />;
 
-export const Text = Template.bind({});
-Text.args = {
-  type: "text",
-  value: "Hello World",
-};
-
-export const Number = Template.bind({});
-Number.args = {
-  type: "number",
-  value: 42,
+export const SelectInput = Template.bind({});
+SelectInput.args = {
+  value: {
+    value: "static",
+    label: "Static",
+  },
+  options
 };

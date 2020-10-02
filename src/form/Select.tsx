@@ -43,6 +43,10 @@ export const Select = styled(WindowedSelect).attrs({
     background: ${props => props.theme.colors.menu.hoverBackground};
   }
 
+  .react-select__option:active {
+    background: ${props => props.theme.colors.menu.activeBackground};
+  }
+
   input:focus {
     box-shadow: none !important;
   }
