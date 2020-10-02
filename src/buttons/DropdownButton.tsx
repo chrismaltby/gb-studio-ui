@@ -1,11 +1,11 @@
-import React, { CSSProperties, ReactNode } from "react";
+import React, { Children, cloneElement, CSSProperties, FC, isValidElement, ReactElement, ReactNode } from "react";
 import styled, { css } from "styled-components";
 import useDropdownMenu from "../hooks/use-dropdown-menu";
 import { TriangleIcon } from "../icons/Icons";
 import { Menu, MenuItem, MenuItemProps } from "../menu/Menu";
 import { Button, ButtonProps } from "./Button";
 
-interface DropdownButtonProps {
+export interface DropdownButtonProps {
   readonly label?: ReactNode;
   readonly children?: ReactNode;
   readonly showArrow?: boolean;
@@ -45,7 +45,7 @@ export const ArrowWrapper = styled.div`
   }
 `;
 
-export const DropdownButton: React.FC<DropdownButtonProps & ButtonProps> = ({
+export const DropdownButton: FC<DropdownButtonProps & ButtonProps> = ({
   size,
   variant,
   label,
@@ -54,12 +54,12 @@ export const DropdownButton: React.FC<DropdownButtonProps & ButtonProps> = ({
   showArrow,
   menuDirection,
 }) => {
-  const childArray = React.Children.toArray(children);
+  const childArray = Children.toArray(children);
   const menuItemChildren = childArray.filter(child => {
     return (
-      React.isValidElement<MenuItemProps>(child) && child.type === MenuItem
+      isValidElement<MenuItemProps>(child) && child.type === MenuItem
     );
-  }) as React.ReactElement[];
+  }) as ReactElement[];
 
   const {
     buttonProps,
@@ -71,13 +71,13 @@ export const DropdownButton: React.FC<DropdownButtonProps & ButtonProps> = ({
 
   const childrenWithProps = childArray.map(child => {
     if (
-      !React.isValidElement<MenuItemProps>(child) ||
+      !isValidElement<MenuItemProps>(child) ||
       child.type !== MenuItem
     ) {
       return child;
     }
     const itemIndex = menuItemChildren.indexOf(child);
-    return React.cloneElement(child, {
+    return cloneElement(child, {
       ...itemProps[itemIndex],
       onClick: (e: any) => {
         setIsOpen(false);

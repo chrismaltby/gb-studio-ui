@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-interface FixedSpacerProps {
+export interface FixedSpacerProps {
   width: number;
 }
 
