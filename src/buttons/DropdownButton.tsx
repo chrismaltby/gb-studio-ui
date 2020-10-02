@@ -46,7 +46,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ArrowWrapper = styled.div`
-  /* margin-right: -5px; */
+  margin-right: -5px;
   &&&& > svg {
     transform: rotate(180deg);
     height: 8px;
@@ -102,7 +102,8 @@ export const DropdownButton: FC<DropdownButtonProps & ButtonProps> = ({
           ...style,
           ...(showArrow && !label
             ? {
-                padding: 0,
+                paddingLeft: 0,
+                paddingRight: 5
               }
             : {}),
         }}
