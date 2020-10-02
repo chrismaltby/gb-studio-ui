@@ -7,7 +7,7 @@ export const EditableText = styled.input`
   border: 1px solid transparent;
   background: transparent;
   padding: 5px;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
