@@ -49,16 +49,6 @@ export const MenuItem = styled.div<MenuItemProps>`
     background: ${props =>
       darken(0.1, props.theme.colors.menu.hoverBackground)};
   }
-
-  /* &:first-child {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-
-  &:last-child {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-  } */
 `;
 
 export const MenuDivider = styled.div`

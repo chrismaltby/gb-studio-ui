@@ -20,6 +20,7 @@ import { DropdownButton } from "../src/buttons/DropdownButton";
 import { MenuDivider, MenuItem } from "../src/menu/Menu";
 import { action } from "@storybook/addon-actions";
 import { PinIcon } from "../src/icons/Icons";
+import { Checkbox } from "../src/form/Checkbox";
 
 export default {
   title: "Components/Form Fields/Example Forms",
@@ -66,7 +67,16 @@ export const ActorEditor = () => {
             minWidth: 36,
           }}
         >
-          <MenuItem>Pin to Screen</MenuItem>
+          <MenuItem>
+            <Checkbox id="pin" name="pin" checked={true} /> Pin to Screen
+          </MenuItem>
+          <MenuDivider />
+          <MenuItem>
+            <Checkbox id="pin_actor2" name="pin_actor2" checked={false} /> Actor 2
+          </MenuItem>
+          <MenuItem>
+            <Checkbox id="pin_actor3" name="pin_actor3" checked={false} /> Actor 3
+          </MenuItem>
         </DropdownButton>
       </FormRow>
       <FormDivider />

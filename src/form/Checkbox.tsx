@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import { MenuItem } from "../menu/Menu";
 
 export interface CheckboxProps {
   readonly id: string;
@@ -10,8 +11,10 @@ export interface CheckboxProps {
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
   margin: 0px;
   position: absolute;
-  width: 18px;
-  height: 18px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
 `;
 
@@ -33,17 +36,34 @@ const StyledCheckbox = styled.div`
     box-shadow: 0 0 0px 2px ${props => props.theme.colors.highlight} !important;
     transition: box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.71, 2.65);
   }
+
+  ${MenuItem} & {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 const CheckboxContainer = styled.div`
+  position: relative;
   display: inline-block;
   vertical-align: middle;
+
+  ${MenuItem} > & {
+    margin-left: -5px;
+    margin-right: 5px;
+    margin-bottom: -2px;
+  }
 `;
 
 const Icon = styled.svg`
   fill: none;
   stroke: white;
   stroke-width: 2px;
+  opacity: 0;
+
+  ${HiddenCheckbox}:checked + * > & {
+    opacity: 1;
+  }
 `;
 
 export const Checkbox: FC<CheckboxProps> = ({
