@@ -9,15 +9,13 @@ const darkheme: ThemeInterface = {
     text: "#b7babb",
     secondaryText: "#777777",
     toolbar: {
-      background: "#3e4142",
-      gradientBottom: "#282a2a",
+      background: "linear-gradient(to bottom, #3e4142 0%, #282a2a 100%)",
       border: "#000000",
       inactiveBackground: "#3e4142",
       inactiveBorder: "#000000",
     },
     button: {
-      background: "#6a6d6e",
-      gradientBottom: "#616364",
+      background: "linear-gradient(to bottom, #6a6d6e 0%, #616364 100%)",
       border: "transparent",
       borderTop: "#9f9e9e",
       activeBackground: "#505252",
@@ -25,7 +23,6 @@ const darkheme: ThemeInterface = {
       toolbar: {
         border: "transparent",
         borderTop: "#9f9e9e",
-        // shadow: "transparent",
       },
       nestedBackground: "#444444",
       nestedActiveBackground: "#555555",

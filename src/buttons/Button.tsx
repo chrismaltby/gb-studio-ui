@@ -52,11 +52,7 @@ const largeStyles = css`
 `;
 
 const normalStyles = css`
-  background: linear-gradient(
-    to bottom,
-    ${props => props.theme.colors.button.background} 0%,
-    ${props => props.theme.colors.button.gradientBottom} 100%
-  );
+  background: ${props => props.theme.colors.button.background};
   border: 1px solid ${props => props.theme.colors.button.border};
   border-top: 1px solid ${props => props.theme.colors.button.borderTop};
   color: ${props => props.theme.colors.button.text};

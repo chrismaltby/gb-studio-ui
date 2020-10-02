@@ -75,15 +75,7 @@ const ZoomLabel = styled.button<ZoomLabelProps>`
   overflow: hidden;
 
   -webkit-app-region: no-drag;
-  background: linear-gradient(
-    to bottom,
-    ${props => {
-        console.log({ props });
-        return props.theme.colors.button.background;
-      }}
-      0%,
-    ${props => props.theme.colors.button.gradientBottom} 100%
-  );
+  background: ${props => props.theme.colors.button.background};
   border: 1px solid ${props => props.theme.colors.button.toolbar.border};
   border-top: 1px solid ${props => props.theme.colors.button.toolbar.borderTop};
   color: ${props => props.theme.colors.button.text};

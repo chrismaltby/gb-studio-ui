@@ -9,24 +9,20 @@ const lightTheme: ThemeInterface = {
     text: "#3b3a3b",
     secondaryText: "#999999",
     toolbar: {
-      background: "#e8e7e8",
-      gradientBottom: "#d1d0d1",
+      background: "linear-gradient(to bottom, #e8e7e8 0%, #d1d0d1 100%)",
       border: "#abaaab",
       inactiveBackground: "#f6f6f6",
       inactiveBorder: "#d1d1d1",
     },
     button: {
-      background: "#fefdfe",
-      gradientBottom: "#f1f1f1",
+      background: "linear-gradient(to bottom, #fefdfe 0%, #f1f1f1 100%)",
       border: "#c5c5c5",
       borderTop: "#c5c5c5",
       activeBackground: "#eaeaea",
       text: "#3b3a3b",
-
       toolbar: {
         border: "#9f9e9e",
         borderTop: "#9f9e9e",
-        // shadow: "#c5c5c5",
       },
       nestedBackground: "#cccccc",
       nestedActiveBackground: "#bbbbbb",

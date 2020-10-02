@@ -12,11 +12,7 @@ export const Toolbar = styled.div<ToolbarProps>`
   height: 38px;
   font-size: 13px;
   flex-shrink: 0;
-  background: linear-gradient(
-    to bottom,
-    ${props => props.theme.colors.toolbar.background} 0%,
-    ${props => props.theme.colors.toolbar.gradientBottom} 100%
-  );
+  background: ${props => props.theme.colors.toolbar.background};
   color: ${props => props.theme.colors.text};
   border-bottom: 1px solid ${props => props.theme.colors.toolbar.border};
   display: flex;

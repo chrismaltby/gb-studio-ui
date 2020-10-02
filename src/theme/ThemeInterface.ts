@@ -8,14 +8,12 @@ export interface ThemeInterface {
     secondaryText: string;
     toolbar: {
       background: string;
-      gradientBottom: string;
       inactiveBackground: string;
       border: string;
       inactiveBorder: string;
     };
     button: {
       background: string;
-      gradientBottom: string;
       border: string;
       borderTop: string;
       activeBackground: string;
