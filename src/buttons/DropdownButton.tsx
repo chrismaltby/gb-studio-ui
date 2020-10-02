@@ -1,4 +1,12 @@
-import React, { Children, cloneElement, CSSProperties, FC, isValidElement, ReactElement, ReactNode } from "react";
+import React, {
+  Children,
+  cloneElement,
+  CSSProperties,
+  FC,
+  isValidElement,
+  ReactElement,
+  ReactNode,
+} from "react";
 import styled, { css } from "styled-components";
 import useDropdownMenu from "../hooks/use-dropdown-menu";
 import { TriangleIcon } from "../icons/Icons";
@@ -10,7 +18,7 @@ export interface DropdownButtonProps {
   readonly children?: ReactNode;
   readonly showArrow?: boolean;
   readonly menuDirection?: "left" | "right";
-  readonly style?: CSSProperties;
+  readonly style: CSSProperties;
 }
 
 interface MenuWrapperProps {
@@ -38,7 +46,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ArrowWrapper = styled.div`
-  margin-right: -5px;
+  /* margin-right: -5px; */
   &&&& > svg {
     transform: rotate(180deg);
     height: 8px;
@@ -50,15 +58,13 @@ export const DropdownButton: FC<DropdownButtonProps & ButtonProps> = ({
   variant,
   label,
   children,
-  style,
   showArrow,
   menuDirection,
+  style,
 }) => {
   const childArray = Children.toArray(children);
   const menuItemChildren = childArray.filter(child => {
-    return (
-      isValidElement<MenuItemProps>(child) && child.type === MenuItem
-    );
+    return isValidElement<MenuItemProps>(child) && child.type === MenuItem;
   }) as ReactElement[];
 
   const {
@@ -70,10 +76,7 @@ export const DropdownButton: FC<DropdownButtonProps & ButtonProps> = ({
   } = useDropdownMenu(menuItemChildren.length);
 
   const childrenWithProps = childArray.map(child => {
-    if (
-      !isValidElement<MenuItemProps>(child) ||
-      child.type !== MenuItem
-    ) {
+    if (!isValidElement<MenuItemProps>(child) || child.type !== MenuItem) {
       return child;
     }
     const itemIndex = menuItemChildren.indexOf(child);
@@ -91,7 +94,19 @@ export const DropdownButton: FC<DropdownButtonProps & ButtonProps> = ({
 
   return (
     <Wrapper>
-      <Button size={size} variant={variant} {...buttonProps} style={style}>
+      <Button
+        size={size}
+        variant={variant}
+        {...buttonProps}
+        style={{
+          ...style,
+          ...(showArrow && !label
+            ? {
+                padding: 0,
+              }
+            : {}),
+        }}
+      >
         {label}
         {showArrow && (
           <ArrowWrapper>

@@ -39,6 +39,10 @@ const lightTheme: ThemeInterface = {
     },
     input: {
       background: "#ffffff",
+      hoverBackground: "#fafafa",
+      activeBackground: "#ffffff",
+      text: "#3b3a3b",
+      border: "#d4d4d4",
     },
   },
   borderRadius: 4,

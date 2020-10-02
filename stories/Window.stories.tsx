@@ -13,6 +13,7 @@ import { SearchInput } from "../src/form/SearchInput";
 import { SplitPane } from "react-collapse-pane";
 import AutoSizer from "react-virtualized-auto-sizer";
 import { SplitPaneTest } from "./components/SplitPaneTest";
+import { ActorEditor } from "./Form.stories";
 
 export default {
   title: "Example/Window",
@@ -38,9 +39,15 @@ export const Window = () => (
         <MenuItem style={{ minWidth: 150 }} onClick={action("world")}>
           World <MenuAccelerator>⌘1</MenuAccelerator>
         </MenuItem>
-        <MenuItem onClick={action("assets")}>Assets <MenuAccelerator>⌘2</MenuAccelerator></MenuItem>
-        <MenuItem onClick={action("build")}>Build & Run <MenuAccelerator>⌘3</MenuAccelerator></MenuItem>
-        <MenuItem onClick={action("settings")}>Settings <MenuAccelerator>⌘4</MenuAccelerator></MenuItem>
+        <MenuItem onClick={action("assets")}>
+          Assets <MenuAccelerator>⌘2</MenuAccelerator>
+        </MenuItem>
+        <MenuItem onClick={action("build")}>
+          Build & Run <MenuAccelerator>⌘3</MenuAccelerator>
+        </MenuItem>
+        <MenuItem onClick={action("settings")}>
+          Settings <MenuAccelerator>⌘4</MenuAccelerator>
+        </MenuItem>
       </DropdownButton>
       <ZoomButton zoom={100} />
       <FlexGrow />
@@ -89,7 +96,9 @@ export const Window = () => (
           </AutoSizer>
         </div>
         <div></div>
-        <div></div>
+        <div style={{ backgroundColor: "#fafafa", height: "100%" }}>
+          <ActorEditor />
+        </div>
       </SplitPane>
     </div>
   </div>

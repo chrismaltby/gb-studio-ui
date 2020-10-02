@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
     caret-color: ${props => props.theme.colors.highlight};
   }
 
+  * {
+    transition: box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.710, 2.650);
+  }
+
   :focus {
     outline: none;
     box-shadow: 0 0 0px 2px ${props => props.theme.colors.highlight} !important;

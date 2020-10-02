@@ -35,6 +35,10 @@ export interface ThemeInterface {
     };
     input: {
       background: string;
+      hoverBackground: string;
+      activeBackground: string;      
+      text: string;
+      border: string;      
     };
   };
   borderRadius: number;

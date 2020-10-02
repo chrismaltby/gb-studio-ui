@@ -17,7 +17,7 @@ export const Button = styled.button<ButtonProps>`
   align-items: center;
   font-size: ${props => props.theme.typography.fontSize};
   border-radius: 4px;
-  height: 34px;
+  height: 30px;
   min-width: 24px;
   white-space: nowrap;
   padding: 0px 15px;

@@ -38,6 +38,10 @@ const darkheme: ThemeInterface = {
     },
     input: {
       background: "#000000",
+      hoverBackground: "#222222",
+      activeBackground: "#000000",
+      text: "#b7babb",
+      border: "#333333",      
     },
   },
   borderRadius: 4,
