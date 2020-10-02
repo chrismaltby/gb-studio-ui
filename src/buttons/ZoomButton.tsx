@@ -1,9 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { MinusIcon, PlusIcon } from "../icons/Icons";
 
 export interface ZoomButtonProps {
   readonly zoom: number;
+  readonly size?: "small" | "medium";
   readonly onZoomIn?: () => void;
   readonly onZoomOut?: () => void;
   readonly onZoomReset?: () => void;
@@ -11,6 +12,10 @@ export interface ZoomButtonProps {
 
 interface ZoomInnerButtonProps {
   readonly pin: "left" | "right";
+}
+
+interface ZoomLabelProps {
+  readonly size?: "small" | "medium";
 }
 
 const ZoomButtonWrapper = styled.div`
@@ -54,7 +59,7 @@ const ZoomInnerButton = styled.button<ZoomInnerButtonProps>`
   }
 `;
 
-const ZoomLabel = styled.button`
+const ZoomLabel = styled.button<ZoomLabelProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -88,6 +93,13 @@ const ZoomLabel = styled.button`
   :active {
     background: ${props => props.theme.colors.button.activeBackground};
   }
+
+  ${props => (props.size === "small" ? smallStyles : "")}
+`;
+
+const smallStyles = css`
+  font-size: 11px;
+  width: 80px;
 `;
 
 export const ZoomButton: React.FC<ZoomButtonProps> = ({
@@ -95,6 +107,7 @@ export const ZoomButton: React.FC<ZoomButtonProps> = ({
   onZoomIn,
   onZoomOut,
   onZoomReset,
+  size
 }) => (
   <ZoomButtonWrapper onClick={onZoomReset}>
     <ZoomInnerButton
@@ -106,7 +119,7 @@ export const ZoomButton: React.FC<ZoomButtonProps> = ({
     >
       <MinusIcon />
     </ZoomInnerButton>
-    <ZoomLabel>{zoom}%</ZoomLabel>
+    <ZoomLabel size={size}>{zoom}%</ZoomLabel>
     <ZoomInnerButton
       pin="right"
       onClick={event => {
@@ -121,4 +134,5 @@ export const ZoomButton: React.FC<ZoomButtonProps> = ({
 
 ZoomButton.defaultProps = {
   zoom: 100,
+  size: "medium"
 };

@@ -61,6 +61,44 @@ export const AppToolbarDark = Template.bind({});
 AppToolbarDark.args = AppToolbar.args;
 AppToolbarDark.decorators = [darkThemeDecorator];
 
+export const AppToolbarSmall = Template.bind({});
+AppToolbarSmall.args = {
+  style: {
+    width: 600
+  },
+  children: (
+    <>
+      <DropdownButton
+        label={<span style={{ textAlign: "left", minWidth: 80 }}>World</span>}
+      >
+        <MenuItem style={{ minWidth: 150 }} onClick={action("world")}>
+          World <MenuAccelerator>⌘1</MenuAccelerator>
+        </MenuItem>
+        <MenuItem onClick={action("assets")}>Assets <MenuAccelerator>⌘2</MenuAccelerator></MenuItem>
+        <MenuItem onClick={action("build")}>Build & Run <MenuAccelerator>⌘3</MenuAccelerator></MenuItem>
+        <MenuItem onClick={action("settings")}>Settings <MenuAccelerator>⌘4</MenuAccelerator></MenuItem>
+      </DropdownButton>
+      <ZoomButton zoom={100} size="small" />
+      <FlexGrow />
+      <SearchInput placeholder="Search..." style={{width:90}} />
+      <Button onClick={action("open_folder")}>
+        <FolderIcon />
+      </Button>
+      <DropdownButton
+        label={<ExportIcon />}
+        showArrow={false}
+        menuDirection="right"
+      >
+        <MenuItem onClick={action("export_rom")}>Export ROM</MenuItem>
+        <MenuItem onClick={action("export_web")}>Export WEB</MenuItem>
+      </DropdownButton>
+      <Button onClick={action("play")}>
+        <PlayIcon />
+      </Button>
+    </>
+  ),
+};
+
 export const Plain = Template.bind({});
 Plain.args = {};
 

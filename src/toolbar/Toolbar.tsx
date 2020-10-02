@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Button } from "../buttons/Button";
 
 export interface ToolbarProps {
@@ -8,7 +8,8 @@ export interface ToolbarProps {
 
 export const Toolbar = styled.div<ToolbarProps>`
   display: flex;
-  height: 37px;
+  box-sizing: border-box;
+  height: 38px;
   font-size: 13px;
   flex-shrink: 0;
   background: linear-gradient(

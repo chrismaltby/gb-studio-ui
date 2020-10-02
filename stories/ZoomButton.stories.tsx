@@ -23,3 +23,8 @@ export const Light = Template.bind({});
 
 export const Dark = Template.bind({});
 Dark.decorators = [darkThemeDecorator];
+
+export const Small = Template.bind({});
+Small.args = {
+  size: "small"
+}
