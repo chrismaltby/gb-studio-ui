@@ -107,7 +107,7 @@ export const ZoomButton: React.FC<ZoomButtonProps> = ({
   onZoomIn,
   onZoomOut,
   onZoomReset,
-  size
+  size,
 }) => (
   <ZoomButtonWrapper onClick={onZoomReset}>
     <ZoomInnerButton
@@ -134,5 +134,5 @@ export const ZoomButton: React.FC<ZoomButtonProps> = ({
 
 ZoomButton.defaultProps = {
   zoom: 100,
-  size: "medium"
+  size: "medium",
 };

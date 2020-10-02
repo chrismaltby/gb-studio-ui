@@ -18,7 +18,7 @@ export interface DropdownButtonProps {
   readonly children?: ReactNode;
   readonly showArrow?: boolean;
   readonly menuDirection?: "left" | "right";
-  readonly style: CSSProperties;
+  readonly style?: CSSProperties;
 }
 
 interface MenuWrapperProps {
@@ -103,7 +103,7 @@ export const DropdownButton: FC<DropdownButtonProps & ButtonProps> = ({
           ...(showArrow && !label
             ? {
                 paddingLeft: 0,
-                paddingRight: 5
+                paddingRight: 5,
               }
             : {}),
         }}

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { Input } from './Input';
+import { Input } from "./Input";
 
 export interface CoordinateInputProps {
   coordinate: "x" | "y" | "w" | "h";
@@ -34,7 +34,11 @@ const Label = styled.label`
   border-right: 1px solid ${props => props.theme.colors.input.border};
 `;
 
-export const CoordinateInput: FC<CoordinateInputProps> = ({ name, coordinate = "x", value }) => (
+export const CoordinateInput: FC<CoordinateInputProps> = ({
+  name,
+  coordinate = "x",
+  value,
+}) => (
   <Wrapper>
     <StyledInput id={name} name={name} type="number" value={value} />
     <Label htmlFor={name}>{coordinate}</Label>

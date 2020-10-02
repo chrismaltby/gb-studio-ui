@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { Checkbox } from "./Checkbox";
-import { Input } from "./Input";
 import { Label } from "./Label";
 
 export interface CheckboxFieldProps {
@@ -16,7 +15,7 @@ const Wrapper = styled.div`
   width: 100%;
 
   ${Label} {
-      margin-left: 5px;
+    margin-left: 5px;
   }
 `;
 

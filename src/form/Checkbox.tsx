@@ -1,28 +1,21 @@
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 
-interface StyledCheckboxProps {
+export interface CheckboxProps {
+  readonly name: string;
   readonly checked?: boolean;
 }
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
-  /* border: 0; */
-  /* clip: rect(0 0 0 0); */
-  /* clippath: inset(50%); */
-  /* height: 1px; */
   margin: 0px;
-  /* overflow: hidden; */
-  /* padding: 0; */
   position: absolute;
-  /* white-space: nowrap; */
-  /* width: 1px; */
   width: 18px;
   height: 18px;
-  opacity: 0;  
+  opacity: 0;
 `;
 
 const StyledCheckbox = styled.div`
-    pointer-events: none;
+  pointer-events: none;
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -37,7 +30,7 @@ const StyledCheckbox = styled.div`
   ${HiddenCheckbox}:focus + & {
     border: 1px solid ${props => props.theme.colors.highlight};
     box-shadow: 0 0 0px 2px ${props => props.theme.colors.highlight} !important;
-    transition: box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.710, 2.650); 
+    transition: box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.71, 2.65);
   }
 `;
 
@@ -52,7 +45,7 @@ const Icon = styled.svg`
   stroke-width: 2px;
 `;
 
-export const Checkbox = ({ id, name, checked, ...props }) => (
+export const Checkbox: FC<CheckboxProps> = ({ name, checked, ...props }) => (
   <CheckboxContainer>
     <HiddenCheckbox id={name} name={name} checked={checked} {...props} />
     <StyledCheckbox>
