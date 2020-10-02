@@ -74,7 +74,7 @@ export const Window = () => (
       <SplitPane
         split="vertical"
         initialSizes={[180, 540, 280]}
-        minSizes={180}
+        minSizes={[180, 100, 240]}
         resizerOptions={{
           css: {
             WebkitColumnWidth: "1px",
