@@ -3,12 +3,12 @@ import React from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
 import { TextField } from "../src/form/TextField";
 import { NumberField } from "../src/form/NumberField";
-import { darkThemeDecorator } from "./helpers";
 import { EditableText } from "../src/form/EditableText";
 import { NoteField } from "../src/form/NoteField";
 import { SelectField } from "../src/form/SelectField";
 import { CheckboxField } from "../src/form/CheckboxField";
 import { CoordinateInput } from "../src/form/CoordinateInput";
+import { ToggleButtonGroupField } from "../src/form/ToggleButtonGroupField";
 import {
   FormContainer,
   FormHeader,
@@ -16,7 +16,6 @@ import {
   FormDivider,
   FormSpacer,
 } from "../src/form/FormLayout";
-import { Button } from "../src/buttons/Button";
 import { DropdownButton } from "../src/buttons/DropdownButton";
 import { MenuDivider, MenuItem } from "../src/menu/Menu";
 import { action } from "@storybook/addon-actions";
@@ -40,8 +39,8 @@ export const ActorEditor = () => {
           value="Actor 1"
           title="Rename Actor 1"
           style={{
-              marginLeft: -5,
-              fontWeight: "bold"
+            marginLeft: -5,
+            fontWeight: "bold",
           }}
         />
         <DropdownButton
@@ -113,7 +112,25 @@ export const ActorEditor = () => {
       </FormRow>
       <FormDivider />
       <FormRow>
-        <TextField label="Collision Group" name="collisionGroup" value="" />
+        <ToggleButtonGroupField
+          label="Collision Group"
+          name="collisionGroup"
+          value=""
+          options={[
+            {
+              value: "1",
+              label: "1",
+            },
+            {
+              value: "2",
+              label: "2",
+            },
+            {
+              value: "3",
+              label: "3",
+            },
+          ]}
+        />
         <FormSpacer />
       </FormRow>
       <FormDivider />
