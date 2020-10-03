@@ -43,3 +43,7 @@ export const Toolbar = styled.div<ToolbarProps>`
     }
   }
 `;
+
+export const ToolbarText = styled.div`
+  text-shadow: ${props => props.theme.colors.toolbar.textShadow};
+`;

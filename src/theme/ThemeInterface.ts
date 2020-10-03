@@ -11,6 +11,7 @@ export interface ThemeInterface {
       inactiveBackground: string;
       border: string;
       inactiveBorder: string;
+      textShadow: string;
     };
     button: {
       background: string;
@@ -40,6 +41,7 @@ export interface ThemeInterface {
     };
     sidebar: {
       background: string;
+      border: string;
     }
     document: {
       background: string;

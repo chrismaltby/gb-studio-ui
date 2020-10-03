@@ -13,6 +13,7 @@ const lightTheme: ThemeInterface = {
       border: "#abaaab",
       inactiveBackground: "#f6f6f6",
       inactiveBorder: "#d1d1d1",
+      textShadow: "none",
     },
     button: {
       background: "linear-gradient(to bottom, #fefdfe 0%, #f1f1f1 100%)",
@@ -41,7 +42,8 @@ const lightTheme: ThemeInterface = {
       border: "#d4d4d4",
     },
     sidebar: {
-      background: "#f2f2f2"
+      background: "#f2f2f2",
+      border: "#d4d4d4",
     },
     document: {
       background: "#f9f9f9"

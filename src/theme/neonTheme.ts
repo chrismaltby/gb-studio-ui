@@ -5,28 +5,28 @@ const darkheme: ThemeInterface = {
     fontSize: "13px",
   },
   colors: {
-    highlight: "#c92c61",
-    text: "#b7babb",
+    highlight: "#f6019d",
+    text: "#f5dcec",
     secondaryText: "#777777",
     toolbar: {
-      background: "linear-gradient(to bottom, #3e4142 0%, #282a2a 100%)",
+      background: "linear-gradient(to bottom, #630d86 0%, #271738 100%)",
       border: "#000000",
       inactiveBackground: "#3e4142",
       inactiveBorder: "#000000",
-      textShadow: "none",
+      textShadow: "0px 0px 5px rgba(206,89,55,0.81), 0px 0px 10px rgba(206,89,55,0.81)",
     },
     button: {
-      background: "linear-gradient(to bottom, #6a6d6e 0%, #616364 100%)",
-      border: "transparent",
-      borderTop: "#9f9e9e",
-      activeBackground: "#505252",
-      text: "#fbfeff",
+      background: "linear-gradient(to bottom, #521386 0%, #2f2058 100%)",
+      border: "#0e0322",
+      borderTop: "#923b76",
+      activeBackground: "#7d1f71",
+      text: "#f5dcec",
       toolbar: {
-        border: "transparent",
-        borderTop: "#9f9e9e",
+        border: "#2f2058",
+        borderTop: "#923b76",
       },
-      nestedBackground: "#444444",
-      nestedActiveBackground: "#555555",
+      nestedBackground: "#20142e",
+      nestedActiveBackground: "#7d1f71",
     },
     menu: {
       background: "#000000",
@@ -38,15 +38,15 @@ const darkheme: ThemeInterface = {
       background: "#000000",
       hoverBackground: "#111111",
       activeBackground: "#000000",
-      text: "#b7babb",
-      border: "#333333",
+      text: "#f5dcec",
+      border: "#540d6e",
     },
     sidebar: {
-      background: "#222222",
-      border: "#000000",
+      background: "#241734",
+      border: "#791e94",
     },
     document: {
-      background: "#666666"
+      background: "#20142e"
     },
     list: {
       selectedBackground: "#000000",

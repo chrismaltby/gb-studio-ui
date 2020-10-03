@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
 import { action } from "@storybook/addon-actions";
 import { Button } from "../src/buttons/Button";
-import { Toolbar } from "../src/toolbar/Toolbar";
+import { Toolbar, ToolbarText } from "../src/toolbar/Toolbar";
 import { FixedSpacer, FlexGrow } from "../src/spacing/Spacing";
 import { DropdownButton } from "../src/buttons/DropdownButton";
 import { MenuAccelerator, MenuItem } from "../src/menu/Menu";
@@ -16,6 +16,7 @@ import { SplitPaneTest } from "./components/SplitPaneTest";
 import { ActorEditor } from "./Form.stories";
 import { ThemeProvider, ThemeContext } from "styled-components";
 import darkTheme from "../src/theme/darkTheme";
+import neonTheme from "../src/theme/neonTheme";
 
 export default {
   title: "Example/Window",
@@ -58,7 +59,7 @@ export const Window = () => {
         </DropdownButton>
         <ZoomButton zoom={100} />
         <FlexGrow />
-        Title
+        <ToolbarText>GB Studio</ToolbarText>
         <FlexGrow />
         <SearchInput placeholder="Search..." />
         <Button onClick={action("open_folder")}>
@@ -89,12 +90,12 @@ export const Window = () => {
           resizerOptions={{
             css: {
               WebkitColumnWidth: "1px",
-              background: "rgba(0, 0, 0, 0.1)",
+              background: themeContext.colors.sidebar.border,
               transition: "none",
             },
             hoverCss: {
               width: "3px",
-              background: "rgba(0, 0, 0, 0.2)",
+              background: themeContext.colors.sidebar.border,
             },
             grabberSize: "1rem",
           }}
@@ -118,6 +119,12 @@ export const Window = () => {
 
 export const WindowDark = () => (
   <ThemeProvider theme={darkTheme}>
+    <Window />
+  </ThemeProvider>
+);
+
+export const WindowNeon = () => (
+  <ThemeProvider theme={neonTheme}>
     <Window />
   </ThemeProvider>
 );
