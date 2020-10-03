@@ -19,14 +19,14 @@ const darkheme: ThemeInterface = {
       background: "linear-gradient(to bottom, #521386 0%, #2f2058 100%)",
       border: "#0e0322",
       borderTop: "#923b76",
-      activeBackground: "#7d1f71",
+      activeBackground: "#f6019d",
       text: "#f5dcec",
       toolbar: {
         border: "#2f2058",
         borderTop: "#923b76",
       },
       nestedBackground: "#20142e",
-      nestedActiveBackground: "#7d1f71",
+      nestedActiveBackground: "#f6019d",
     },
     menu: {
       background: "#000000",
