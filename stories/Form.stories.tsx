@@ -131,7 +131,7 @@ export const ActorEditor = () => {
                         background: "rgb(239, 204, 189)",
                         width: 15,
                         height: 15,
-                        borderTopLeftRadius: 3,
+                        borderTopLeftRadius: 2,
                       }}
                     />
                     <div
@@ -139,7 +139,7 @@ export const ActorEditor = () => {
                         background: "rgb(210, 156, 145)",
                         width: 15,
                         height: 15,
-                        borderTopRightRadius: 3,
+                        borderTopRightRadius: 2,
                       }}
                     />
                   </div>
@@ -148,8 +148,8 @@ export const ActorEditor = () => {
                       background: "rgb(15, 42, 55)",
                       width: 30,
                       height: 15,
-                      borderBottomLeftRadius: 3,
-                      borderBottomRightRadius: 3,
+                      borderBottomLeftRadius: 2,
+                      borderBottomRightRadius: 2,
                     }}
                   />
                 </div>
