@@ -40,6 +40,16 @@ const lightTheme: ThemeInterface = {
       text: "#3b3a3b",
       border: "#d4d4d4",
     },
+    sidebar: {
+      background: "#f2f2f2"
+    },
+    document: {
+      background: "#f9f9f9"
+    },
+    list: {
+      selectedBackground: "#dddddd",
+      activeBackground: "#eaeaea"
+    }
   },
   borderRadius: 4,
 };

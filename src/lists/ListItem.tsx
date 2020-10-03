@@ -14,11 +14,11 @@ export const ListItem = styled.div`
   border-radius: 4px;
 
   :active {
-    background-color: #eaeaea;
+    background: ${props => props.theme.colors.list.activeBackground};
   }
 
   &[data-selected="true"] {
-    background: #ddd;
+    background: ${props => props.theme.colors.list.selectedBackground};
   }
 
   :focus {

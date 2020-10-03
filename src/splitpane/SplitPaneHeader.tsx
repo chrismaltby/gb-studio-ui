@@ -16,8 +16,9 @@ export const Wrapper = styled.div`
   font-weight: bold;
   padding: 0px 10px;
   height: 30px;
-  background-color: #fafafa;
-  border-bottom: 1px solid #ccc;
+  background-color: ${props => props.theme.colors.input.background};
+  color: ${props => props.theme.colors.input.text};
+  border-bottom: 1px solid ${props => props.theme.colors.input.border};
 
   > span {
     flex-grow: 1;
@@ -25,11 +26,11 @@ export const Wrapper = styled.div`
 
   svg {
     width: 8px;
-    fill: #ccc;
+    fill: ${props => props.theme.colors.input.text};
   }
 
   :active {
-    background-color: #f0f0f0;
+    background-color: ${props => props.theme.colors.input.hoverBackground};
   }
 `;
 

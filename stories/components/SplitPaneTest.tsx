@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useContext, useState } from "react";
+import styled, { ThemeContext } from "styled-components";
 import AutoSizer from "react-virtualized-auto-sizer";
 import { FlatList } from "../../src/lists/FlatList";
 import { SplitPaneHeader } from "../../src/splitpane/SplitPaneHeader";
@@ -68,6 +68,7 @@ export const SplitPaneTest: React.FC<SplitPaneTestProps> = ({
   width,
   height,
 }) => {
+  const themeContext = useContext(ThemeContext);
   const [selectedId, setSelectedId] = useState("");
   const [splitSizes, setSplitSizes] = useState([
     height - OPENED_SIZE - COLLAPSED_SIZE - COLLAPSED_SIZE,
@@ -165,7 +166,6 @@ export const SplitPaneTest: React.FC<SplitPaneTestProps> = ({
   return (
     <div
       style={{
-        background: "#fafafa",
         width,
         height,
         position: "relative",
@@ -182,11 +182,11 @@ export const SplitPaneTest: React.FC<SplitPaneTestProps> = ({
         resizerOptions={{
           css: {
             height: "1px",
-            background: "rgba(0, 0, 0, 0.1)",
+            background: themeContext.colors.input.border
           },
           hoverCss: {
             height: "3px",
-            background: "rgba(0, 0, 0, 0.2)",
+            background: themeContext.colors.input.border
           },
           grabberSize: "1rem",
         }}

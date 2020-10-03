@@ -37,8 +37,6 @@ export interface FlatListProps {
 }
 
 const Wrapper = styled.div`
-  background: #eee;
-  /* padding: 0 5px; */
   padding: 0;
   width: 100%;
   box-sizing: border-box;

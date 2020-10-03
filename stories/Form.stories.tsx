@@ -36,7 +36,7 @@ export default {
 
 export const ActorEditor = () => {
   return (
-    <FormContainer style={{ width: "100%", backgroundColor: "#fafafa" }}>
+    <FormContainer style={{ width: "100%" }}>
       <FormHeader>
         <EditableText
           name="name"
@@ -87,21 +87,12 @@ export const ActorEditor = () => {
       </FormRow>
       <FormDivider />
       <FormRow>
-        <div>
+        <div style={{ display: "flex", width: "100%" }}>
           <SquareSelect
             label="SpriteSheet"
             name="spriteSheetId"
             value={{ label: "Static", value: "static" }}
-            options={[
-              {
-                value: "static",
-                label: "Static",
-              },
-              {
-                value: "actor",
-                label: "Actor",
-              },
-            ]}
+            options={[]}
             size={48}
             components={{
               DropdownIndicator: () => (
@@ -111,16 +102,17 @@ export const ActorEditor = () => {
               ),
             }}
           />
-        </div>
-        <div style={{ fontSize: 11, lineHeight: "14px", width: "100%" }}>
-          <div>
-            <strong>Sprite:</strong> Cat
-          </div>
-          <div>
-            <strong>Frames:</strong> 1
-          </div>
-          <div>
-            <strong>Type:</strong> Static
+
+          <div style={{ fontSize: 11, lineHeight: "15px", width: "100%", marginLeft: 5 }}>
+            <div>
+              <strong>Sprite:</strong> Cat
+            </div>
+            <div>
+              <strong>Frames:</strong> 1
+            </div>
+            <div>
+              <strong>Type:</strong> Static
+            </div>
           </div>
         </div>
         <div>
@@ -128,16 +120,7 @@ export const ActorEditor = () => {
             label="SpriteSheet"
             name="spriteSheetId"
             value={{ label: "Static", value: "static" }}
-            options={[
-              {
-                value: "static",
-                label: "Static",
-              },
-              {
-                value: "actor",
-                label: "Actor",
-              },
-            ]}
+            options={[]}
             size={36}
             components={{
               DropdownIndicator: () => (
@@ -176,7 +159,7 @@ export const ActorEditor = () => {
         </div>
       </FormRow>
       <FormRow>
-        <NumberField label="Initial Frame" name="initialFrame" value={0} />
+        <NumberField label="Initial Frame" name="initialFrame" value={1} />
         <SelectField
           label="Sprite Type"
           name="spriteType"
@@ -198,7 +181,21 @@ export const ActorEditor = () => {
       </FormRow>
       <FormDivider />
       <FormRow>
-        <TextField label="Movement Speed" name="movementSpeed" value="0" />
+        <SelectField
+          label="Movement Speed"
+          name="movementSpeed"
+          value={{ label: "0 (Slower)", value: "0" }}
+          options={[
+            {
+              value: "0",
+              label: "0 (Slower)",
+            },
+            {
+              value: "5",
+              label: "5 (Faster)",
+            },
+          ]}
+        />
         <SelectField
           label="Animation Speed"
           name="animationSpeed"

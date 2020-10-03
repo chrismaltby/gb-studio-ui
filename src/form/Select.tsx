@@ -7,6 +7,15 @@ export const Select = styled(WindowedSelect).attrs({
   .react-select__control {
     height: 28px;
     min-height: 28px;
+    background: ${props => props.theme.colors.input.background};
+    color: ${props => props.theme.colors.input.text};
+    border: 1px solid ${props => props.theme.colors.input.border};
+    font-size: ${props => props.theme.typography.fontSize};
+    border-radius: 4px;
+  }
+
+  .react-select__control:hover {
+    border: 1px solid ${props => props.theme.colors.input.border};
   }
 
   .react-select__control--is-focused {
@@ -22,12 +31,17 @@ export const Select = styled(WindowedSelect).attrs({
     margin-top: -1px;
   }
 
+  .react-select__single-value {
+    color: ${props => props.theme.colors.input.text};
+  }
+
   .react-select__placeholder {
     margin: 0;
   }
 
   .react-select__indicator-separator {
     margin: 0;
+    background: ${props => props.theme.colors.input.border};
   }
 
   .react-select__dropdown-indicator {
@@ -40,6 +54,13 @@ export const Select = styled(WindowedSelect).attrs({
   .react-select__dropdown-indicator svg {
     width: 16px;
     height: 16px;
+  }
+
+  .react-select__menu-list {
+    background: ${props => props.theme.colors.menu.background};
+    color: ${props => props.theme.colors.text};
+    font-size: ${props => props.theme.typography.fontSize};
+    border-radius: 4px;
   }
 
   .react-select__option {

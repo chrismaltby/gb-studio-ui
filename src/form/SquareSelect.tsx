@@ -8,6 +8,15 @@ export const SquareSelect = styled(WindowedSelect).attrs({
     width: ${props => props.size}px;
     height: ${props => props.size}px;
     min-height: ${props => props.size}px;
+    background: ${props => props.theme.colors.input.background};
+    color: ${props => props.theme.colors.input.text};
+    border: 1px solid ${props => props.theme.colors.input.border};
+    font-size: ${props => props.theme.typography.fontSize};
+    border-radius: 4px;    
+  }
+
+  .react-select__control:hover {
+    border: 1px solid ${props => props.theme.colors.input.border};
   }
 
   .react-select__control--is-focused {
@@ -22,6 +31,10 @@ export const SquareSelect = styled(WindowedSelect).attrs({
     height: 1px;
     position: absolute;
     opacity: 0;
+  }
+
+  .react-select__single-value {
+    color: ${props => props.theme.colors.input.text};
   }
 
   .react-select__placeholder {
@@ -51,6 +64,13 @@ export const SquareSelect = styled(WindowedSelect).attrs({
 
   .react-select__menu {
     min-width: 200px;
+  }
+  
+  .react-select__menu-list {
+    background: ${props => props.theme.colors.menu.background};
+    color: ${props => props.theme.colors.text};
+    font-size: ${props => props.theme.typography.fontSize};
+    border-radius: 4px;
   }
 
   .react-select__option {

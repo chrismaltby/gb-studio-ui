@@ -38,6 +38,16 @@ export interface ThemeInterface {
       text: string;
       border: string;
     };
+    sidebar: {
+      background: string;
+    }
+    document: {
+      background: string;
+    },
+    list: {
+      selectedBackground: string;
+      activeBackground: string;
+    }
   };
   borderRadius: number;
 }

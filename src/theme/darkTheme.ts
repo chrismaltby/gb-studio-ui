@@ -35,11 +35,21 @@ const darkheme: ThemeInterface = {
     },
     input: {
       background: "#000000",
-      hoverBackground: "#222222",
+      hoverBackground: "#111111",
       activeBackground: "#000000",
       text: "#b7babb",
       border: "#333333",
     },
+    sidebar: {
+      background: "#222222"
+    },
+    document: {
+      background: "#666666"
+    },
+    list: {
+      selectedBackground: "#000000",
+      activeBackground: "#333333"
+    }
   },
   borderRadius: 4,
 };
