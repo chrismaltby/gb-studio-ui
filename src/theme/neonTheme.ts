@@ -6,6 +6,7 @@ const darkheme: ThemeInterface = {
   },
   colors: {
     highlight: "#f6019d",
+    highlightText: "#ffffff",
     text: "#f5dcec",
     secondaryText: "#777777",
     toolbar: {

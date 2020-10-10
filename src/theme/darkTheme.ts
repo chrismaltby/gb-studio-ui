@@ -6,6 +6,7 @@ const darkheme: ThemeInterface = {
   },
   colors: {
     highlight: "#c92c61",
+    highlightText: "#ffffff",
     text: "#b7babb",
     secondaryText: "#777777",
     toolbar: {
@@ -46,7 +47,7 @@ const darkheme: ThemeInterface = {
       border: "#000000",
     },
     document: {
-      background: "#666666"
+      background: "#444444"
     },
     list: {
       selectedBackground: "#000000",

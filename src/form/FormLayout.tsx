@@ -1,4 +1,6 @@
+import React, { FC } from 'react';
 import styled from "styled-components";
+import { Label } from './Label';
 
 export const FormContainer = styled.div``;
 
@@ -21,6 +23,8 @@ export const FormHeader = styled.div`
 export const FormRow = styled.div`
   display: flex;
   padding: 0 10px;
+  width: 100%;
+  box-sizing: border-box;
 
   & > * {
     margin-right: 10px;
@@ -42,3 +46,19 @@ export const FormDivider = styled.div`
 export const FormSpacer = styled.div`
   width: 100%;
 `;
+
+const FormFieldWrapper = styled.div`
+  width: 100%;
+`;
+
+export interface FormFieldProps {
+  readonly name: string;
+  readonly label?: string;
+}
+
+export const FormField: FC<FormFieldProps> = ({ name, label, children }) => (
+  <FormFieldWrapper>
+    {label && <Label htmlFor={name}>{label}</Label>}
+    {children}
+  </FormFieldWrapper>
+);

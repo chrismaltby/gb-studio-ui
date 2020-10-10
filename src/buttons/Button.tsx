@@ -74,6 +74,9 @@ const primaryStyles = css`
   :active {
     background: ${props => lighten(0.1, props.theme.colors.highlight)};
   }
+  :focus {
+    box-shadow: 0 0 0px 2px #fff, 0 0 0px 4px ${props => props.theme.colors.highlight};
+  }
 `;
 
 const transparentStyles = css`

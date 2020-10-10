@@ -6,6 +6,7 @@ const lightTheme: ThemeInterface = {
   },
   colors: {
     highlight: "#c92c61",
+    highlightText: "#ffffff",
     text: "#3b3a3b",
     secondaryText: "#999999",
     toolbar: {
