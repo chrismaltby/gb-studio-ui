@@ -1,7 +1,8 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState, FC } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { Button } from "../buttons/Button";
 import pkg from "../../package.json";
+import projectIcon from "../icons/gbsproj.png";
 
 export const SplashWrapper = styled.div`
   display: flex;
@@ -134,7 +135,7 @@ export const SplashTemplateSelectOptions = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 
   & > * {
     margin-right: 10px;
@@ -198,7 +199,7 @@ interface SplashTemplateVideoProps {
   playing: boolean;
 }
 
-export const SplashTemplateVideo: React.FC<SplashTemplateVideoProps> = ({
+export const SplashTemplateVideo: FC<SplashTemplateVideoProps> = ({
   src,
   playing,
 }) => {
@@ -217,7 +218,7 @@ export const SplashTemplateVideo: React.FC<SplashTemplateVideoProps> = ({
   return <video ref={ref} src={src} muted loop />;
 };
 
-export const SplashTemplateSelect: React.FC<SplashTemplateSelectProps> = ({
+export const SplashTemplateSelect: FC<SplashTemplateSelectProps> = ({
   templates,
   name,
   value,
@@ -420,10 +421,90 @@ export interface SplashCreditsContributorProps {
   };
 }
 
-export const SplashCreditsContributor: React.FC<SplashCreditsContributorProps> = ({
+export const SplashCreditsContributor: FC<SplashCreditsContributorProps> = ({
   contributor,
 }) => (
   <SplashCreditsContributorWrapper>
     {contributor.login}
   </SplashCreditsContributorWrapper>
+);
+
+export const SplashScroll = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 30px;
+  box-sizing: border-box;
+  background: ${props => props.theme.colors.document.background};
+  color: ${props => props.theme.colors.text};
+
+  h2 {
+    margin-top: 0;
+  }
+`;
+
+export interface SplashProjectProps {
+  project: {
+    name: string;
+    path: string;
+  };
+}
+
+export const SplashProjectWrapper = styled.button`
+  display: flex;
+  text-align: left;
+  color: ${props => props.theme.colors.input.text};
+  background: ${props => props.theme.colors.input.background};
+  border: 1px solid ${props => props.theme.colors.input.border};
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+
+  img {
+    width: 42px;
+    margin-right: 10px;
+  }
+
+  :hover {
+    background: ${props => props.theme.colors.input.hoverBackground};
+  }
+
+  :active {
+    border: 1px solid ${props => props.theme.colors.highlight};
+    background: ${props => props.theme.colors.input.activeBackground};
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const SplashProjectDetails = styled.span`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const SplashProjectName = styled.span`
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+export const SplashProjectPath = styled.span`
+  display: block;
+  font-size: 11px;
+  opacity: 0.8;
+`;
+
+export const SplashProject: FC<SplashProjectProps> = ({ project }) => (
+  <SplashProjectWrapper>
+    <img src={projectIcon} />
+    <SplashProjectDetails>
+      <SplashProjectName>{project.name}</SplashProjectName>
+      <SplashProjectPath>{project.path}</SplashProjectPath>
+    </SplashProjectDetails>
+  </SplashProjectWrapper>
 );

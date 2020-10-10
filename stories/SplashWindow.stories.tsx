@@ -17,6 +17,8 @@ import {
   SplashCreditsTitle,
   SplashLogo,
   SplashOpenButton,
+  SplashProject,
+  SplashScroll,
   SplashSidebar,
   SplashTab,
   SplashTemplateSelect,
@@ -34,6 +36,20 @@ import { Label } from "../src/form/Label";
 import { CloseIcon, DotsIcon } from "../src/icons/Icons";
 import contributors from "../contributors.json";
 
+const recentProjects = [
+  {
+    name: "UntitledGBGame.gbsproj",
+    path: "/Users/chris/Desktop/UntitledGBGame",
+  },
+];
+
+for (let i = 0; i < 10; i++) {
+  recentProjects.push({
+    name: `Project${i}.gbsproj`,
+    path: `/Users/chris/Desktop/Project${i}`,
+  });
+}
+
 export default {
   title: "Example/SplashWindow",
   component: Toolbar,
@@ -42,7 +58,7 @@ export default {
 export const Window = () => {
   const themeContext = useContext(ThemeContext);
   const [templateId, setTemplateId] = useState("gbs2");
-  const [section, setSection] = useState<"new" | "recent" | "info">("new");
+  const [section, setSection] = useState<"new" | "recent">("new");
   const [openCredits, setOpenCredits] = useState(false);
 
   return (
@@ -76,79 +92,86 @@ export const Window = () => {
           >
             Recent
           </SplashTab>
-          <SplashTab
-            selected={section === "info"}
-            onClick={() => setSection("info")}
-          >
-            Info
-          </SplashTab>
           <SplashTab>Documentation</SplashTab>
           <FlexGrow />
           <SplashOpenButton>Open Project</SplashOpenButton>
         </SplashSidebar>
-        <SplashContent>
-          <FormRow>
-            <TextField
-              name="name"
-              label="Project name"
-              size="large"
-              value="Untitled"
-            />
-          </FormRow>
-          <FormRow>
-            <TextField
-              name="path"
-              label="Path"
-              size="large"
-              value="/Users/me/Documents"
-              additionalRight={
-                <Button>
-                  <DotsIcon />
-                </Button>
-              }
-            />
-          </FormRow>
-          <FormRow>
-            <FormField name="template" label="Template">
-              <SplashTemplateSelect
-                name="template"
-                templates={[
-                  {
-                    id: "gbs2",
-                    name: "Sample Project",
-                    preview: sampleMovieFile,
-                    videoPreview: true,
-                    description:
-                      "A GBC template containing examples of top down, platformer, point and click and shooter scenes",
-                  },
-                  {
-                    id: "gbhtml",
-                    name: "Sample Project (1.0.0)",                    
-                    preview: sample1MovieFile,
-                    videoPreview: true,
-                    description:
-                      "The original GB Studio template. A short 4 color top down game",
-                  },
-                  {
-                    id: "blank",
-                    name: "Blank Project",
-                    preview: blankProjectImageFile,
-                    videoPreview: false,
-                    description: "A completely blank canvas",
-                  },
-                ]}
-                value={templateId}
-                onChange={setTemplateId}
+        {section === "new" && (
+          <SplashContent>
+            <FormRow>
+              <TextField
+                name="name"
+                label="Project name"
+                size="large"
+                value="Untitled"
               />
-            </FormField>
-          </FormRow>
-          <FlexGrow />
-          <FormRow>
-            <Button variant="primary" size="large" style={{marginBottom: 0}}>
-              Create Project
-            </Button>
-          </FormRow>
-        </SplashContent>
+            </FormRow>
+            <FormRow>
+              <TextField
+                name="path"
+                label="Path"
+                size="large"
+                value="/Users/me/Documents"
+                additionalRight={
+                  <Button>
+                    <DotsIcon />
+                  </Button>
+                }
+              />
+            </FormRow>
+            <FormRow>
+              <FormField name="template" label="Template">
+                <SplashTemplateSelect
+                  name="template"
+                  templates={[
+                    {
+                      id: "gbs2",
+                      name: "Sample Project",
+                      preview: sampleMovieFile,
+                      videoPreview: true,
+                      description:
+                        "A GBC template containing examples of top down, platformer, point and click and shooter scenes",
+                    },
+                    {
+                      id: "gbhtml",
+                      name: "Sample Project (1.0.0)",
+                      preview: sample1MovieFile,
+                      videoPreview: true,
+                      description:
+                        "The original GB Studio template. A short 4 color top down game",
+                    },
+                    {
+                      id: "blank",
+                      name: "Blank Project",
+                      preview: blankProjectImageFile,
+                      videoPreview: false,
+                      description: "A completely blank canvas",
+                    },
+                  ]}
+                  value={templateId}
+                  onChange={setTemplateId}
+                />
+              </FormField>
+            </FormRow>
+            <FlexGrow />
+            <FormRow>
+              <Button
+                variant="primary"
+                size="large"
+              >
+                Create Project
+              </Button>
+            </FormRow>
+          </SplashContent>
+        )}
+
+        {section === "recent" && (
+          <SplashScroll>
+            {recentProjects.map((project, index) => (
+              <SplashProject key={index} project={project} />
+            ))}
+          </SplashScroll>
+        )}
       </SplashWrapper>
       {openCredits && (
         <FocusLock>
