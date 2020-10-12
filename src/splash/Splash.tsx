@@ -1,8 +1,6 @@
 import React, { useLayoutEffect, useRef, useState, FC } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { Button } from "../buttons/Button";
-import pkg from "../../package.json";
-import projectIcon from "../icons/gbsproj.png";
 
 export const SplashWrapper = styled.div`
   display: flex;
@@ -59,9 +57,9 @@ export const SplashAppTitle = () => {
   return (
     <SplashAppTitleWrapper onClick={displayCommit}>
       {showCommit ? (
-        <div>{pkg.version} COMMITHASH</div>
+        <div>2.0.0 COMMITHASH</div>
       ) : (
-        `GB Studio ${pkg.version}`
+        `GB Studio 2.0.0`
       )}
     </SplashAppTitleWrapper>
   );
@@ -146,9 +144,9 @@ export const SplashTemplateButtonWrapper = styled.div`
   position: relative;
 `;
 
-export const SplashTemplateButton = styled.input.attrs(props => ({
+export const SplashTemplateButton = styled.input.attrs({
   type: "radio",
-}))`
+})`
   width: 80px;
   height: 80px;
   margin: 0;
@@ -501,7 +499,7 @@ export const SplashProjectPath = styled.span`
 
 export const SplashProject: FC<SplashProjectProps> = ({ project }) => (
   <SplashProjectWrapper>
-    <img src={projectIcon} />
+    {/* <img src={projectIcon} /> */}
     <SplashProjectDetails>
       <SplashProjectName>{project.name}</SplashProjectName>
       <SplashProjectPath>{project.path}</SplashProjectPath>

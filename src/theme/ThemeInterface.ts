@@ -3,9 +3,10 @@ export interface ThemeInterface {
     fontSize: string;
   };
   colors: {
-    highlight: string;
     text: string;
     secondaryText: string;
+    highlight: string;
+    highlightText: string;
     toolbar: {
       background: string;
       inactiveBackground: string;
