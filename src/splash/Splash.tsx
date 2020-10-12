@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef, useState, FC } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { Button } from "../buttons/Button";
+import projectIcon from "../icons/gbsproj.png";
 
 export const SplashWrapper = styled.div`
   display: flex;
@@ -38,6 +39,11 @@ export const SplashLogo = styled.div`
 
   :hover img {
     transform: scale(1.05);
+  }
+
+  :active img {
+    transform: scale(1.02);
+    opacity: 0.8;
   }
 `;
 
@@ -431,7 +437,6 @@ export const SplashScroll = styled.div`
   width: 100%;
   height: 100%;
   overflow: auto;
-  padding: 30px;
   box-sizing: border-box;
   background: ${props => props.theme.colors.document.background};
   color: ${props => props.theme.colors.text};
@@ -451,12 +456,12 @@ export interface SplashProjectProps {
 export const SplashProjectWrapper = styled.button`
   display: flex;
   text-align: left;
-  color: ${props => props.theme.colors.input.text};
   background: ${props => props.theme.colors.input.background};
-  border: 1px solid ${props => props.theme.colors.input.border};
-  border-radius: 4px;
-  margin-bottom: 20px;
-  padding: 10px;
+  color: ${props => props.theme.colors.text};
+  border: 0;
+  border-bottom: 1px solid ${props => props.theme.colors.input.border};
+  border-radius: 0px;
+  padding: 15px 30px;
   width: 100%;
 
   img {
@@ -469,7 +474,6 @@ export const SplashProjectWrapper = styled.button`
   }
 
   :active {
-    border: 1px solid ${props => props.theme.colors.highlight};
     background: ${props => props.theme.colors.input.activeBackground};
   }
 
@@ -499,7 +503,7 @@ export const SplashProjectPath = styled.span`
 
 export const SplashProject: FC<SplashProjectProps> = ({ project }) => (
   <SplashProjectWrapper>
-    {/* <img src={projectIcon} /> */}
+    <img src={projectIcon} />
     <SplashProjectDetails>
       <SplashProjectName>{project.name}</SplashProjectName>
       <SplashProjectPath>{project.path}</SplashProjectPath>
