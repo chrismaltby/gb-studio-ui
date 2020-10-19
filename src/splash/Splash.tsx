@@ -3,52 +3,105 @@ import styled, { css, keyframes } from "styled-components";
 import { Button } from "../buttons/Button";
 import projectIcon from "../icons/gbsproj.png";
 
-export const SplashWrapper = styled.div`
+declare const VERSION: string;
+declare const COMMITHASH: string;
+
+export interface SplashWrapperProps {
+  focus: boolean;
+}
+
+export const SplashWrapper = styled.div<SplashWrapperProps>`
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 100%;
+  ${(props) =>
+    props.focus === false
+      ? css`
+          opacity: 0.75;
+          -webkit-filter: grayscale(100%);
+        `
+      : ""}
 `;
 
 export const SplashSidebar = styled.div`
   display: flex;
   flex-direction: column;
-  background: ${props => props.theme.colors.sidebar.background};
+  background: ${(props) => props.theme.colors.sidebar.background};
   width: 200px;
   height: 100%;
   flex-shrink: 0;
+  -webkit-app-region: drag;
 `;
 
 export const SplashContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background: ${props => props.theme.colors.document.background};
-  color: ${props => props.theme.colors.text};
+  background: ${(props) => props.theme.colors.document.background};
+  color: ${(props) => props.theme.colors.text};
   padding: 20px;
   flex-grow: 1;
+  -webkit-app-region: drag;
+  input,
+  select,
+  button {
+    -webkit-app-region: no-drag;
+  }
+`;
+
+export const SplashForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 `;
 
 export const SplashLogo = styled.div`
-  padding: 25px 20px 0;
+  position: relative;
+  margin: 35px 20px 0;
+  transition: transform 0.2s ease-in-out;
 
   img {
-    transition: transform 0.2s ease-in-out;
     width: 100%;
   }
 
-  :hover img {
+  :hover {
     transform: scale(1.05);
   }
+`;
 
-  :active img {
-    transform: scale(1.02);
-    opacity: 0.8;
+export const SplashEasterEggButton = styled.button`
+  position: absolute;
+  left: 26px;
+  top: 63px;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 0;
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+
+  :hover {
+    background: radial-gradient(
+      circle,
+      rgba(251, 63, 139, 0.2) 0%,
+      rgba(252, 70, 107, 0) 100%
+    );
+  }
+
+  :active {
+    background: radial-gradient(
+      circle,
+      rgba(251, 63, 139, 0.6) 0%,
+      rgba(252, 70, 107, 0) 100%
+    );
   }
 `;
 
 export const SplashAppTitleWrapper = styled.div`
-  color: ${props => props.theme.colors.secondaryText};
+  color: ${(props) => props.theme.colors.secondaryText};
   font-size: 11px;
   text-align: center;
   margin-bottom: 20px;
@@ -63,9 +116,11 @@ export const SplashAppTitle = () => {
   return (
     <SplashAppTitleWrapper onClick={displayCommit}>
       {showCommit ? (
-        <div>2.0.0 COMMITHASH</div>
+        <div>
+          {VERSION} ({COMMITHASH})
+        </div>
       ) : (
-        `GB Studio 2.0.0`
+        `GB Studio ${VERSION}`
       )}
     </SplashAppTitleWrapper>
   );
@@ -76,11 +131,13 @@ interface SplashTabProps {
 }
 
 export const SplashTab = styled.button<SplashTabProps>`
+  font-size: 13px;
   padding: 8px 20px;
   text-align: left;
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
   background: transparent;
   border: 0;
+  -webkit-app-region: no-drag;
 
   :hover {
     background: rgba(128, 128, 128, 0.3);
@@ -90,19 +147,19 @@ export const SplashTab = styled.button<SplashTabProps>`
     background: rgba(128, 128, 128, 0.4);
   }
 
-  ${props => (props.selected ? SplashTabSelectedStyles : "")}
+  ${(props) => (props.selected ? SplashTabSelectedStyles : "")}
 `;
 
 const SplashTabSelectedStyles = css`
-  background: ${props => props.theme.colors.highlight};
+  background: ${(props) => props.theme.colors.highlight};
   color: #fff;
 
   :hover {
-    background: ${props => props.theme.colors.highlight};
+    background: ${(props) => props.theme.colors.highlight};
     color: #fff;
   }
   :active {
-    background: ${props => props.theme.colors.highlight};
+    background: ${(props) => props.theme.colors.highlight};
     color: #fff;
   }
 `;
@@ -110,10 +167,11 @@ const SplashTabSelectedStyles = css`
 export const SplashOpenButton = styled(Button).attrs(() => ({
   variant: "transparent",
 }))`
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
   justify-content: flex-start;
   padding: 5px;
   margin: 15px;
+  -webkit-app-region: no-drag;
 `;
 
 export interface Template {
@@ -157,10 +215,10 @@ export const SplashTemplateButton = styled.input.attrs({
   height: 80px;
   margin: 0;
   padding: 0;
-  border-radius: 4px;
+  border-radius: ${props => props.theme.borderRadius}px;
   -webkit-appearance: none;
   :focus {
-    box-shadow: 0 0 0px 4px ${props => props.theme.colors.highlight};
+    box-shadow: 0 0 0px 4px ${(props) => props.theme.colors.highlight};
   }
 `;
 
@@ -171,8 +229,8 @@ export const SplashTemplateLabel = styled.label`
   width: 80px;
   height: 80px;
   background-color: #fff;
-  border: 2px solid ${props => props.theme.colors.input.background};
-  border-radius: 4px;
+  border: 2px solid ${(props) => props.theme.colors.input.background};
+  border-radius: ${props => props.theme.borderRadius}px;
   -webkit-appearance: none;
   box-sizing: border-box;
 
@@ -183,8 +241,8 @@ export const SplashTemplateLabel = styled.label`
   }
 
   ${SplashTemplateButton}:checked + & {
-    border: 2px solid ${props => props.theme.colors.highlight};
-    box-shadow: 0 0 0px 2px ${props => props.theme.colors.highlight};
+    border: 2px solid ${(props) => props.theme.colors.highlight};
+    box-shadow: 0 0 0px 2px ${(props) => props.theme.colors.highlight};
   }
 `;
 
@@ -228,11 +286,11 @@ export const SplashTemplateSelect: FC<SplashTemplateSelectProps> = ({
   value,
   onChange,
 }) => {
-  const selectedTemplate = templates.find(template => template.id === value);
+  const selectedTemplate = templates.find((template) => template.id === value);
   return (
     <SplashTemplateSelectWrapper>
       <SplashTemplateSelectOptions>
-        {templates.map(template => (
+        {templates.map((template) => (
           <SplashTemplateButtonWrapper key={template.id}>
             <SplashTemplateButton
               id={`${name}_${template.id}`}
@@ -269,6 +327,10 @@ export const SplashTemplateSelect: FC<SplashTemplateSelectProps> = ({
   );
 };
 
+export const SplashCreateButton = styled.div`
+  padding: 0px 10px;
+`;
+
 const SplashCreditsFadeAnimation = keyframes`
   from {
     opacity: 0;
@@ -288,6 +350,7 @@ export const SplashCredits = styled.div`
   overflow: none;
   animation: ${SplashCreditsFadeAnimation} 1s linear;
   animation-fill-mode: forwards;
+  -webkit-app-region: drag;
 `;
 
 export const SplashCreditsBackground = () => {
@@ -300,9 +363,11 @@ export const SplashCreditsBackground = () => {
       let time = 0;
 
       const render = () => {
+        const width = 640;
+        const height = 400;
         if (ref.current && ctx) {
           // Create gradient
-          const bgGrad = ctx.createLinearGradient(0, 0, 0, 400);
+          const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
           bgGrad.addColorStop(0, "#221e6a");
           bgGrad.addColorStop(0.25, "#bb205a");
           bgGrad.addColorStop(0.5, "#ce1e32");
@@ -311,9 +376,9 @@ export const SplashCreditsBackground = () => {
 
           // Fill with gradient
           ctx.fillStyle = bgGrad;
-          ctx.fillRect(0, 0, 600, 400);
+          ctx.fillRect(0, 0, width, height);
 
-          var lineGrad = ctx.createLinearGradient(0, 0, 0, 400);
+          var lineGrad = ctx.createLinearGradient(0, 0, 0, height);
           lineGrad.addColorStop(0, "#e79c58");
           lineGrad.addColorStop(0.25, "#e5731b");
           lineGrad.addColorStop(0.4, "#ce1e32");
@@ -327,25 +392,31 @@ export const SplashCreditsBackground = () => {
 
           for (let i = -8; i < 16; i++) {
             ctx.beginPath();
-            ctx.moveTo(i * 75, 0);
-            ctx.lineTo(300, 200);
+            ctx.moveTo(i * 80, 0);
+            ctx.lineTo(width * 0.5, height * 0.5);
             ctx.stroke();
 
             ctx.beginPath();
-            ctx.moveTo(i * 75, 400);
-            ctx.lineTo(300, 200);
+            ctx.moveTo(i * 80, height);
+            ctx.lineTo(width * 0.5, height * 0.5);
             ctx.stroke();
           }
 
           for (let i = 0; i < 15; i++) {
             ctx.beginPath();
-            ctx.moveTo(0, 200 - 200 / (-time + i * 0.5));
-            ctx.lineTo(600, 200 - 200 / (-time + i * 0.5));
+            ctx.moveTo(0, height * 0.5 - (height * 0.5) / (-time + i * 0.5));
+            ctx.lineTo(
+              width,
+              height * 0.5 - (height * 0.5) / (-time + i * 0.5)
+            );
             ctx.stroke();
 
             ctx.beginPath();
-            ctx.moveTo(0, 200 + 200 / (-time + i * 0.5));
-            ctx.lineTo(600, 200 + 200 / (-time + i * 0.5));
+            ctx.moveTo(0, height * 0.5 + (height * 0.5) / (-time + i * 0.5));
+            ctx.lineTo(
+              width,
+              height * 0.5 + (height * 0.5) / (-time + i * 0.5)
+            );
             ctx.stroke();
           }
 
@@ -363,7 +434,7 @@ export const SplashCreditsBackground = () => {
     }
   }, [ref]);
 
-  return <canvas ref={ref} width={600} height={400}></canvas>;
+  return <canvas ref={ref} width={640} height={400}></canvas>;
 };
 
 const SplashCreditsAnimation = keyframes`
@@ -384,21 +455,27 @@ export const SplashCreditsContent = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  animation: ${SplashCreditsAnimation} 120s linear infinite;
+  animation: ${SplashCreditsAnimation} 150s linear infinite;
 `;
 
 export const SplashCreditsCloseButton = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   & > * {
     height: 100%;
+  }
+
+  ${Button} {
+    padding: 0 5px;
+    margin: 0;
+  }
+
+  ${Button} svg {
+    fill: #fff;
+    width: 16px;
+    max-width: none;
   }
 `;
 
@@ -406,16 +483,22 @@ export const SplashCreditsTitle = styled.div`
   display: block;
   color: #fff;
   font-size: 40px;
+  font-weight: bold;
   text-decoration: none;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 `;
 
 export const SplashCreditsContributorWrapper = styled.div`
   display: block;
   color: #fff;
-  font-size: 30px;
+  font-size: 20px;
   text-decoration: none;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+
+  :hover {
+    color: #ffff00;
+    cursor: pointer;
+  }
 `;
 
 export interface SplashCreditsContributorProps {
@@ -423,12 +506,14 @@ export interface SplashCreditsContributorProps {
     login: string;
     contributions: number;
   };
+  onClick: () => void;
 }
 
 export const SplashCreditsContributor: FC<SplashCreditsContributorProps> = ({
   contributor,
+  onClick,
 }) => (
-  <SplashCreditsContributorWrapper>
+  <SplashCreditsContributorWrapper onClick={onClick}>
     {contributor.login}
   </SplashCreditsContributorWrapper>
 );
@@ -438,12 +523,34 @@ export const SplashScroll = styled.div`
   height: 100%;
   overflow: auto;
   box-sizing: border-box;
-  background: ${props => props.theme.colors.document.background};
-  color: ${props => props.theme.colors.text};
+  background: ${(props) => props.theme.colors.document.background};
+  color: ${(props) => props.theme.colors.text};
+  position: relative;
 
   h2 {
     margin-top: 0;
   }
+`;
+
+export const SplashInfoMessage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  box-sizing: border-box;
+  padding: 30px;
+  text-align: center;
+`;
+
+export const SplashProjectClearButton = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 30px;
 `;
 
 export interface SplashProjectProps {
@@ -451,15 +558,16 @@ export interface SplashProjectProps {
     name: string;
     path: string;
   };
+  onClick: () => void;
 }
 
 export const SplashProjectWrapper = styled.button`
   display: flex;
   text-align: left;
-  background: ${props => props.theme.colors.input.background};
-  color: ${props => props.theme.colors.text};
+  background: ${(props) => props.theme.colors.input.background};
+  color: ${(props) => props.theme.colors.text};
   border: 0;
-  border-bottom: 1px solid ${props => props.theme.colors.input.border};
+  border-bottom: 1px solid ${(props) => props.theme.colors.input.border};
   border-radius: 0px;
   padding: 15px 30px;
   width: 100%;
@@ -470,11 +578,11 @@ export const SplashProjectWrapper = styled.button`
   }
 
   :hover {
-    background: ${props => props.theme.colors.input.hoverBackground};
+    background: ${(props) => props.theme.colors.input.hoverBackground};
   }
 
   :active {
-    background: ${props => props.theme.colors.input.activeBackground};
+    background: ${(props) => props.theme.colors.input.activeBackground};
   }
 
   :last-child {
@@ -486,6 +594,7 @@ export const SplashProjectDetails = styled.span`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 export const SplashProjectName = styled.span`
@@ -493,16 +602,22 @@ export const SplashProjectName = styled.span`
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const SplashProjectPath = styled.span`
   display: block;
   font-size: 11px;
   opacity: 0.8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
-export const SplashProject: FC<SplashProjectProps> = ({ project }) => (
-  <SplashProjectWrapper>
+export const SplashProject: FC<SplashProjectProps> = ({ project, onClick }) => (
+  <SplashProjectWrapper onClick={onClick}>
     <img src={projectIcon} />
     <SplashProjectDetails>
       <SplashProjectName>{project.name}</SplashProjectName>

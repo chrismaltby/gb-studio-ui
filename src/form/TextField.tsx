@@ -6,8 +6,10 @@ import { Input } from "./Input";
 export interface TextFieldProps {
   readonly name: string;
   readonly label?: string;
+  readonly errorLabel?: string;
   readonly value?: string;
   readonly size?: "small" | "medium" | "large";
+  readonly onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readonly additionalRight?: ReactNode;
 }
 
@@ -31,18 +33,33 @@ const AdditionalRight = styled.div`
 export const TextField: FC<TextFieldProps> = ({
   name,
   label,
+  errorLabel,
   size,
   value,
+  onChange,
   additionalRight,
 }) => (
-  <FormField name={name} label={label}>
+  <FormField name={name} label={errorLabel || label} variant={errorLabel ? "error" : undefined}>
     {additionalRight ? (
       <AdditionalWrapper>
-        <Input id={name} name={name} value={value} displaySize={size} />
+        <Input
+          id={name}
+          name={name}
+          value={value}
+          displaySize={size}
+          onChange={onChange}
+          style={{ paddingRight: 60 }}
+        />
         <AdditionalRight>{additionalRight}</AdditionalRight>
       </AdditionalWrapper>
     ) : (
-      <Input id={name} name={name} value={value} displaySize={size} />
+      <Input
+        id={name}
+        name={name}
+        value={value}
+        displaySize={size}
+        onChange={onChange}
+      />
     )}
   </FormField>
 );

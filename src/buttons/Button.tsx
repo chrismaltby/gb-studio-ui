@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { ThemeInterface } from "../theme/ThemeInterface";
-import { lighten } from "polished";
 
 export interface ButtonProps {
   readonly size?: "small" | "medium" | "large";
@@ -16,7 +15,7 @@ export const Button = styled.button<ButtonProps>`
   justify-content: center;
   align-items: center;
   font-size: ${props => props.theme.typography.fontSize};
-  border-radius: 4px;
+  border-radius: ${props => props.theme.borderRadius}px;
   height: 28px;
   min-width: 24px;
   white-space: nowrap;
@@ -46,7 +45,8 @@ const smallStyles = css`
 `;
 
 const largeStyles = css`
-  padding: 20px;
+  height: 42px;
+  padding: 0px 20px;
   font-size: 15px;
   font-weight: bold;
 `;
@@ -72,7 +72,8 @@ const primaryStyles = css`
   }
 
   :active {
-    background: ${props => lighten(0.1, props.theme.colors.highlight)};
+    background: #fff;
+    color: ${props => props.theme.colors.highlight};
   }
   :focus {
     box-shadow: 0 0 0px 2px #fff, 0 0 0px 4px ${props => props.theme.colors.highlight};

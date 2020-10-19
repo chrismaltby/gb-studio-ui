@@ -7,6 +7,18 @@ export interface ThemeInterface {
     secondaryText: string;
     highlight: string;
     highlightText: string;
+    conditional: {
+      level1: string;
+      level2: string;
+      level3: string;
+      level4: string;
+    };
+    token: {
+      variable: string;
+      character: string;
+      speed: string;
+      text: string;
+    }
     toolbar: {
       background: string;
       inactiveBackground: string;
@@ -32,6 +44,7 @@ export interface ThemeInterface {
       hoverBackground: string;
       activeBackground: string;
       divider: string;
+      boxShadow: string;
     };
     input: {
       background: string;
@@ -43,14 +56,14 @@ export interface ThemeInterface {
     sidebar: {
       background: string;
       border: string;
-    }
+    };
     document: {
       background: string;
-    },
+    };
     list: {
       selectedBackground: string;
       activeBackground: string;
-    }
+    };
   };
   borderRadius: number;
 }
