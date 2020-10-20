@@ -9,7 +9,7 @@ export const FormHeader = styled.div`
   align-items: center;
   padding: 4px 10px;
   margin-bottom: 10px;
-  border-bottom: 1px solid ${(props) => props.theme.colors.input.border};
+  border-bottom: 1px solid ${props => props.theme.colors.input.border};
 
   & > * {
     margin-right: 10px;
@@ -20,15 +20,27 @@ export const FormHeader = styled.div`
   }
 `;
 
-export const FormRow = styled.div`
+export interface FormRowProps {
+  readonly size?: "medium" | "large";
+}
+
+export const FormRow = styled.div<FormRowProps>`
   display: flex;
   padding: 0 10px;
   width: 100%;
   box-sizing: border-box;
 
   & > * {
-    margin-right: 10px;
-    margin-bottom: 10px;
+    ${props =>
+      props.size === "large"
+        ? css`
+            margin-right: 20px;
+            margin-bottom: 20px;
+          `
+        : css`
+            margin-right: 10px;
+            margin-bottom: 10px;
+          `}
   }
 
   & > *:last-child {
@@ -40,7 +52,7 @@ export const FormDivider = styled.div`
   margin-left: -10px;
   margin-right: -10px;
   margin-bottom: 10px;
-  border-bottom: 1px solid ${(props) => props.theme.colors.input.border};
+  border-bottom: 1px solid ${props => props.theme.colors.input.border};
 `;
 
 export const FormSpacer = styled.div`
@@ -53,7 +65,7 @@ interface FormFieldWrapperProps {
 
 const FormFieldWrapper = styled.div<FormFieldWrapperProps>`
   width: 100%;
-  ${(props) =>
+  ${props =>
     props.variant === "error"
       ? css`
           color: ${props.theme.colors.highlight};

@@ -23,6 +23,7 @@ import { action } from "@storybook/addon-actions";
 import { PinIcon } from "../src/icons/Icons";
 import { Checkbox } from "../src/form/Checkbox";
 import spriteFile from "./static/sprite.png";
+import { SliderField } from "../src/form/SliderField";
 
 const menuEl = document.getElementById("menu-root");
 
@@ -103,7 +104,14 @@ export const ActorEditor = () => {
             }}
           />
 
-          <div style={{ fontSize: 11, lineHeight: "15px", width: "100%", marginLeft: 5 }}>
+          <div
+            style={{
+              fontSize: 11,
+              lineHeight: "15px",
+              width: "100%",
+              marginLeft: 5,
+            }}
+          >
             <div>
               <strong>Sprite:</strong> Cat
             </div>
@@ -178,6 +186,16 @@ export const ActorEditor = () => {
       </FormRow>
       <FormRow>
         <CheckboxField name="animate" label="Animate while stationary" />
+      </FormRow>
+      <FormDivider />
+      <FormRow>
+        <SliderField
+          name="maxRunVel"
+          label="Max Run Velocity"
+          value={20000}
+          min={0}
+          max={65535}
+        />
       </FormRow>
       <FormDivider />
       <FormRow>
